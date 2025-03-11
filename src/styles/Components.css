@@ -1,0 +1,21 @@
+/* ------------------------------------------BUTTON STYLES-------------------------------------------------------------- */
+button {
+    background-color: yellow;
+    color:white;
+    height: 4vh;
+    width: 6vw;
+    transition: all 0.2s ease;
+};
+
+button:hover {
+    background-color: rgb(245, 245, 154);
+    color: black;
+    cursor: pointer;
+};
+
+button:active{
+    transform: translateY(2px);
+};
+/* ------------------------------------------CARD STYLES---------------------------------------------------------------- */
+
+/* ------------------------------------------SLYDER STYLES-------------------------------------------------------------- */
