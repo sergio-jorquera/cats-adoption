@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import React from 'react'
 import "./../../styles/Components.css"
+import CatCard from '../CatCard/CatCard';
+
 
 
 const CatSlider = () => {
