@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 
 function CatCard({ cat, onAdopt }) {
   return (
-    <div>
+    <div className="card">
       <img src={cat.url} alt="Gatito" style={{ maxWidth: '300px' }} />
       <Button onClick={() => onAdopt(cat)}>¡Adóptame!</Button>
     </div>

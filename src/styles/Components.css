@@ -3,3 +3,77 @@
 /* ------------------------------------------CARD STYLES---------------------------------------------------------------- */
 
 /* ------------------------------------------SLYDER STYLES-------------------------------------------------------------- */
+.sliderContainer {
+    display: flex;
+    align-items: center; /* Alinea verticalmente las tarjetas y los botones */
+    justify-content: center; /* Centra todo el contenido */
+    position: relative; /* Necesario para los botones fijos */
+    width: 100%;
+    height: 100%; /* Asegura que el contenedor ocupe toda la pantalla */
+  }
+  
+  .cardContainer {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas */
+    align-items: center;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 10px;
+    max-width: 80vw;
+  }
+  
+  .card {
+    width: 250px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .prevButton, .nextButton {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s;
+    z-index: 1000;
+  }
+  
+  .prevButton:hover,
+  .nextButton:hover {
+    background-color: #f57c00;
+  }
+  
+  .prevButton {
+    position: absolute;
+    left: 20px; /* Alinea el botón a la izquierda */
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+  }
+  
+  .nextButton {
+    position: absolute;
+    right: 20px; /* Alinea el botón a la derecha */
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+  }
+  
