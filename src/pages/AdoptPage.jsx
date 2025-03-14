@@ -1,11 +1,16 @@
 import React from "react";
-import Routes from "../routes/AppRoutes.jsx"
+import AppRoutes from "../routes/AppRoutes.jsx";
 import Button from "../Components/Button/Button.jsx";
+import './styles/AdoptPage.css'
 
 export default function AdoptPage() {
-    return (<>
-        <h1>Adopt Web</h1>
+  return (
+    <>
+      <div id="mainAdopt">
+        <h1>Página web actualmente en construcción:</h1>
         <Button to=""></Button>
-        </>
-    )
+        <AppRoutes />
+      </div>
+    </>
+  );
 };

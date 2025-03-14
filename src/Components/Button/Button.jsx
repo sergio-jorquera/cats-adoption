@@ -19,7 +19,6 @@ export default function Button({to}) {
     return (
         <>
         <button type="button" onClick={handleNavigation}>{textButton}</button>
-        <AppRoutes />
         </>
     );    
 };
