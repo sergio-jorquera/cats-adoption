@@ -1,26 +1,9 @@
-import React from 'react';
-import Routes from './routes/AppRoutes';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import React from "react";
+import Routes from "./routes/AppRoutes"; // 👈 Renombrado para evitar conflicto
+
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <Routes />
-      <Footer />
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;
-
-
-// import React from 'react';
-// import Routes from './routes/Routes';
-
-// function App() {
-//   return <Routes />;
-// }
-
-// export default App;
