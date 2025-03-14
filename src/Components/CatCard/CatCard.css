@@ -1,43 +1,19 @@
 .cat-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra el contenido dentro de cada tarjeta */
-  justify-content: space-between; /* Distribuye el espacio de manera uniforme */
-  width: 200px; /* Ancho fijo para uniformidad */
-  padding: 10px;
-  border: 1px solid #ccc;
+  margin: 10px;
+  text-align: center;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-5px);
 }
 
 .cat-image {
-  width: 100%; /* Asegura que ocupe todo el ancho disponible */
-  height: 150px; /* Altura fija para uniformidad */
-  object-fit: cover; /* Mantiene las proporciones de la imagen */
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.cat-name {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.cat-card button {
-  margin-top: auto; /* Alinea el botón al final */
-  align-self: center; /* Centra el botón horizontalmente */
-  padding: 10px 20px;
-  font-size: 1em;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cat-card button:hover {
-  background-color: #0056b3;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
 }

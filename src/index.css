@@ -1,3 +1,5 @@
+/* index.css */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -29,6 +31,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 20px; /* Agrega padding para pantallas pequeñas */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
 }
 
 h1 {
@@ -43,13 +47,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1a30f3;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #dda610;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -57,13 +63,13 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+      color: #213547;
+      background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+      color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+      background-color: #f9f9f9;
   }
 }
