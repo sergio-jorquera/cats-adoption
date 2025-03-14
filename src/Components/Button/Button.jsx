@@ -1,6 +1,5 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
-import AppRoutes from "../../routes/AppRoutes";
 
 export default function Button({to}) {
     const navigate = useNavigate();
