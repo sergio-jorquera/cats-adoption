@@ -7,7 +7,7 @@ function RoutesComponent() {
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/adopt" element={<AdoptPage />} />
       </Routes>
     </Router>

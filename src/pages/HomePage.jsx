@@ -6,7 +6,7 @@ function HomePage() {
     <div>
       <h1>Adopta un Gatito</h1>
       <CatSlider />
-    </div>
+  </div>
   );
 }
 
