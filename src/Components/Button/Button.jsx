@@ -1,13 +1,23 @@
-import React from 'react';
-import styles from './Button.module.css'; // Importa los estilos modulares
+import React from "react";
+import {useNavigate} from 'react-router-dom';
 
+export default function Button({to}) {
+    const navigate = useNavigate();
+    let textButton = "";
 
-function Button({ onClick, children }) {
-  return (
-    <button className={styles.button} onClick={onClick}>
-      {children}
-    </button>
-  );
-}
+    const handleNavigation = () => {
+        if (to === "adopt") {
+            navigate('/adopt');
+        } else {
+            navigate('/');
+        }
+    };
 
-export default Button;
+    textButton = to === "adopt" ? "¡Adoptame!" : "Volver a Inicio";
+
+    return (
+        <>
+        <button type="button" onClick={handleNavigation}>{textButton}</button>
+        </>
+    );    
+};

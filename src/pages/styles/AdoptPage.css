@@ -1,0 +1,16 @@
+
+#mainAdopt{
+    height: 80vh;
+    width: 100vw;
+    background-image: url('../../../public/adoptBackground.avif');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    object-fit: fill;
+    overflow: hidden;
+}
+
+#mainContent {
+    padding-top: 22vh;
+    padding-left: 12vw;
+    color: black;
+}

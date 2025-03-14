@@ -56,8 +56,8 @@ const CatSlider = () => {
 
   return (
     <div className="sliderContainer">
-    {/* Botón Anterior (izquierda de las tarjetas) */}
-    <Button className="prevButton" onClick={handlePrevClick}>←</Button>
+    
+    <button className="prevButton" onClick={handlePrevClick}>←</button>
 
     <div className="cardContainer">
       {cats.length > 0 ? (
@@ -69,8 +69,8 @@ const CatSlider = () => {
       )}
     </div>
 
-    {/* Botón Siguiente (derecha de las tarjetas) */}
-    <Button className="nextButton" onClick={handleNextClick}>→</Button>
+    
+    <button className="nextButton" onClick={handleNextClick}>→</button>
   </div>
     
   );
