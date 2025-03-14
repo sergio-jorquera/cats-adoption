@@ -1,6 +1,6 @@
 import React from 'react';
 import CatSlider from '../components/CatSlider/CatSlider';
-import './HomePage.css';
+import './styles/HomePage.css';
 
 function HomePage() {
   return (

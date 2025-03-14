@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../Components/Button/Button.jsx";
-import '../styles/AdoptPage.css'
+import Button from './../Components/Button/Button';
+import './styles/AdoptPage.css'
 
 export default function AdoptPage() {
   return (
