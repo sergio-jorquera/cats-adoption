@@ -1,14 +1,7 @@
-import React from 'react';
-import CatSlider from '../components/CatSlider/CatSlider';
-import './HomePage.css'; // Asegúrate de que esta línea esté presente
+import React from "react";
 
-function HomePage() {
-  return (
-    <div className="home-page">
-      <h1>Adopta un Gatito</h1>
-      <CatSlider />
-    </div>
-  );
-}
-
-export default HomePage;
+export default function HomePage(){
+    return (
+        <h1>Home page</h1>
+    )
+};
