@@ -1,79 +1,58 @@
 import { useState, useEffect } from "react";
-import React from "react";
-import CatService from "../../services/catService";
-import "./../../styles/Components.css";
-import CatCard from "../CatCard/CatCard";
-import Button from "../Button/Button";
+import "../../styles/Components.css"; // Importación de estilos globales
+import CatService from "../../services/catService"; // Asegúrate de que esta ruta sea correcta
+import CatCard from "../CatCard/CatCard"; // Asegúrate de que la ruta es correcta
 
-const CARDS_VISIBLE = 4; // Mostrar 4 gatos a la vez
+export default function Slider() {
+  const [cats, setCats] = useState([]); // Estado para almacenar las imágenes de los gatos
+  const [currentIndex, setCurrentIndex] = useState(0); // Estado para el índice de la imagen actual
+  const itemsPerSlide = 5; // Número de tarjetas que se muestran por vez
 
-const CatSlider = () => {
-  const [cats, setCats] = useState([]);
-  const [startIndex, setStartIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-
+  // Cargar las imágenes de gatos al montar el componente
   useEffect(() => {
     const fetchCats = async () => {
-      setLoading(true);
-      const fetchedCats = await CatService.getCats();
-      console.log("Gatos obtenidos:", fetchedCats);
-      setCats(fetchedCats);
-      setLoading(false);
+      const data = await CatService.getCats(); // Llamamos al servicio
+      setCats(data); // Establecemos los datos en el estado
     };
 
     fetchCats();
-  }, []);
+  }, []); // Solo se ejecuta una vez cuando el componente se monta
 
-  const handleNextClick = () => {
-    setStartIndex((prev) => {
-      // Si estamos al final de la lista, reiniciar el índice
-      if (prev + CARDS_VISIBLE >= cats.length) {
-        return 0; // Reiniciar al principio
-      }
-  
-      return prev + CARDS_VISIBLE;
+  // Función para mostrar las siguientes 5 tarjetas
+  const nextSlide = () => {
+    // Asegurarse de que el índice no pase del límite
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + itemsPerSlide;
+      return nextIndex < cats.length ? nextIndex : 0; // Vuelve al principio cuando llega al final
     });
   };
-  
-  const handlePrevClick = () => {
-    setStartIndex((prev) => {
-      const nextIndex = prev - CARDS_VISIBLE;
-  
-      // Si estamos al principio de la lista y retrocedemos más allá, ir al final
-      if (nextIndex < 0) {
-        return cats.length - (cats.length % CARDS_VISIBLE); // Regresar al último bloque de 4
-      }
-  
-      return nextIndex;
+
+  // Función para mostrar las anteriores 5 tarjetas
+  const prevSlide = () => {
+    // Asegurarse de que el índice no sea negativo
+    setCurrentIndex((prevIndex) => {
+      const prevIndexNew = prevIndex - itemsPerSlide;
+      return prevIndexNew >= 0 ? prevIndexNew : cats.length - itemsPerSlide; // Vuelve al final cuando llega al principio
     });
   };
-  
-  
 
-  if (loading) {
-    return <p>Cargando gatitos... 🐱</p>;
+  // Si no hay gatos cargados, mostrar mensaje de carga
+  if (cats.length === 0) {
+    return <div>Cargando gatos...</div>;
   }
 
   return (
-    <div className="sliderContainer">
+    <div className="slider-content">
+      <button onClick={prevSlide} className="arrow button prevButton">◀</button>
     
-    <button className="prevButton" onClick={handlePrevClick}>←</button>
+      <div className="slider-container">
+        {/* Mostrar las 5 tarjetas actuales */}
+        {cats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
+          <CatCard key={index} cat={cat} />
+        ))}
+      </div>
 
-    <div className="cardContainer">
-      {cats.length > 0 ? (
-        cats.slice(startIndex, startIndex + CARDS_VISIBLE).map((cat) => (
-          <CatCard key={cat.id} cat={cat} onAdopt={() => alert(`¡Adoptaste a un gatito! 🐱`)} />
-        ))
-      ) : (
-        <p>No hay gatos disponibles 😿</p>
-      )}
+      <button onClick={nextSlide} className="arrow button nextButton">▶</button>
     </div>
-
-    
-    <button className="nextButton" onClick={handleNextClick}>→</button>
-  </div>
-    
   );
-};
-
-export default CatSlider;
+}
