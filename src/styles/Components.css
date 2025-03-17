@@ -1,52 +1,52 @@
 /* ------------------------------------------BUTTON STYLES-------------------------------------------------------------- */
 button {
-    background-color: rgb(0, 81, 255);
-    color:white;
-    height: 40px;
-    width: 100px;
-    min-width: 8vw;
-    transition: all 0.2s ease;
-    margin-bottom: 10px;
-   
-    
+  background-color: rgb(0, 81, 255);
+  color:white;
+  height: 40px;
+  width: 100px;
+  min-width: 8vw;
+  transition: all 0.2s ease;
+  margin-bottom: 10px;
+ 
   
+
 };
 
 button:hover {
-    background-color: rgb(245, 245, 154);
-    color: black;
-    cursor: pointer;
+  background-color: rgb(245, 245, 154);
+  color: black;
+  cursor: pointer;
 };
 
 button:active{
-    transform: translateY(2px);
+  transform: translateY(2px);
 };
 
 /* ------------------------------------------CARD STYLES---------------------------------------------------------------- */
 .cat-card {
-  display: grid;
-  margin: 10px;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 18%;
-  margin: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  background-color: white ;
-  
-  
+display: grid;
+margin: 10px;
+text-align: center;
+border-radius: 8px;
+overflow: hidden;
+width: 18%;
+margin: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+background-color: white ;
+
+
 }
 
 .cat-card:hover {
-  transform: translateY(-5px);
+transform: translateY(-5px);
 }
 
 .cat-image {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
+width: 200px;
+height: 200px;
+object-fit: cover;
+border-bottom: 1px solid #eee;
 }
 
 /* ------------------------------------------SLYDER STYLES-------------------------------------------------------------- */
