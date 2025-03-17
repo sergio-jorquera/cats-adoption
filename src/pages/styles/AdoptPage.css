@@ -1,16 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-#mainAdopt{
-    height: 80vh;
+#mainAdopt {
+    flex-grow: 1;
+    min-height: calc(100vh - 16vh);
     width: 100vw;
     background-image: url('/adoptBackground.avif');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    object-fit: fill;
-    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #mainContent {
-    padding-top: 22vh;
-    padding-left: 12vw;
+    padding-bottom: 30vh;
+padding-right: 65vw;
     color: black;
 }

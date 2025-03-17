@@ -27,11 +27,11 @@ a:hover {
 body {
   display: flex;
   justify-content: center;
+  padding: 0;
   margin: 0;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  padding: 20px; /* Agrega padding para pantallas pequeñas */
   /* box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
 } 
 
