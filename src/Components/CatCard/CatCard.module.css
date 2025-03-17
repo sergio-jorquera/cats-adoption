@@ -1,4 +1,4 @@
-.cat-card {
+.catCard {
   margin: 10px;
   text-align: center;
   border-radius: 8px;
@@ -7,11 +7,11 @@
   transition: transform 0.3s ease;
 }
 
-.cat-card:hover {
+.catCard:hover {
   transform: translateY(-5px);
 }
 
-.cat-image {
+.catImage {
   width: 200px;
   height: 200px;
   object-fit: cover;

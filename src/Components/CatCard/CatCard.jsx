@@ -4,8 +4,8 @@ import style from './CatCard.module.css';
 
 function CatCard({ cat, onAdopt }) {
   return (
-    <div className={style.cat-card}>
-      <img className={style.cat-image} src={cat.url} alt="Gatito" />
+    <div className={style.catCard}>
+      <img className={style.catImage} src={cat.url} alt="Gatito" />
       <Button to='adopt'/>
     </div>
   );

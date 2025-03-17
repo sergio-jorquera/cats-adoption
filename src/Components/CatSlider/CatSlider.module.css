@@ -1,4 +1,4 @@
-.slider-container {
+.sliderContainer {
     position: relative;
     background-color: rgb(195, 238, 229);
     width: 100%;
@@ -8,13 +8,13 @@
     display:  flex;
     gap: 15px;
     justify-content: center;
-    margin-top: 300px;
+    margin-top: 150px;
     align-items: center;
     
   }
   
   /* Contenedor de las tarjetas */
-  .slider-content {
+  .sliderContent {
     display: flex; /* Flexbox para poner las tarjetas en fila horizontal */
     transition: transform 0.5s ease;
     width: 100%;
