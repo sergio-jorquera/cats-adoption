@@ -2,7 +2,7 @@
 #mainAdopt{
     height: 80vh;
     width: 100vw;
-    background-image: url('../../../public/adoptBackground.avif');
+    background-image: url('/adoptBackground.avif');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     object-fit: fill;
