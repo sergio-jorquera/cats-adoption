@@ -1,0 +1,79 @@
+.slider-container {
+    position: relative;
+    background-color: rgb(195, 238, 229);
+    width: 100%;
+    max-width: 1100px; /* Ajusta el ancho máximo del contenedor */
+    margin: 0 auto;
+    overflow: visible; /* Oculta las tarjetas fuera del área visible */
+    display:  flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 300px;
+    align-items: center;
+    
+  }
+  
+  /* Contenedor de las tarjetas */
+  .slider-content {
+    display: flex; /* Flexbox para poner las tarjetas en fila horizontal */
+    transition: transform 0.5s ease;
+    width: 100%;
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+  
+  /* Los botones ya tienen estilo, solo asegúrate de que estén posicionados correctamente */
+  .arrow {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  #prevButton {
+    left: 0;
+    transform: translate(-120%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 189, 87);
+  }
+  
+  #nextButton {
+    right: 0;
+    transform: translate(120%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 189, 87);
+  }
+  
+  @media (max-width: 768px) {
+    .slider-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .arrow {
+      position: static; /* Quitar posición absoluta */
+      transform: none;
+      margin-top: 10px;
+    }
+  
+    .slider-content {
+      width: 100%;
+    }
+  }
+  @media (max-width: 465px) {
+    .slider-container {
+      display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    }
+  
+  }

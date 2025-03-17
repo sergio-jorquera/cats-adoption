@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./CatSlider.module.css"; 
+import styles from "./CatSlider.module.css"; 
 import CatService from "../../services/catService"; 
 import CatCard from "../CatCard/CatCard"; 
 
@@ -38,19 +38,19 @@ export default function Slider() {
   }
 
   return (
-    <div className="slider-container">
+    <div className={styles.slider-container}>
       {/* Botón de anterior */}
-      <button onClick={prevSlide} className="arrow" id="prevButton">◀</button>
+      <button onClick={prevSlide} className={styles.arrow} id={styles.prevButton}>◀</button>
       
       {/* Contenedor de las tarjetas */}
-      <div className="slider-content">
+      <div className={styles.slider-content}>
         {cats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
           <CatCard key={index} cat={cat} />
         ))}
       </div>
       
       {/* Botón de siguiente */}
-      <button onClick={nextSlide} className="arrow" id="nextButton">▶</button>
+      <button onClick={nextSlide} className={styles.arrow} id={styles.nextButton}>▶</button>
     </div>
   );
 }  
