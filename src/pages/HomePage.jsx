@@ -8,7 +8,7 @@ function HomePage() {
     <div>
       <Header/>
       <h1>Adopta un Gatito</h1>
-      <CatSlider />
+      <CatSlider/>
       <Footer/>
   </div>
   );
