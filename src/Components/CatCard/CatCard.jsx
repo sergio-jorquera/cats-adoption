@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '../Button/Button';
-import './CatCard.css'; // Importa el archivo de estilos
+import style from './CatCard.module.css';
 
 function CatCard({ cat, onAdopt }) {
   return (
-    <div className="cat-card">
-      <img src={cat.url} alt="Gatito" className="cat-image" />
+    <div className={style.cat-card}>
+      <img className={style.cat-image} src={cat.url} alt="Gatito" />
       <Button to='adopt'/>
     </div>
   );

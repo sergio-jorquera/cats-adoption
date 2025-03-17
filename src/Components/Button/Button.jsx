@@ -1,5 +1,6 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
+import styles from './Button.module.css';
 
 export default function Button({to}) {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Button({to}) {
 
     return (
         <>
-        <button type="button" onClick={handleNavigation}>{textButton}</button>
+        <button className={styles.Button} type="button" onClick={handleNavigation}>{textButton}</button>
         </>
     );    
 };
