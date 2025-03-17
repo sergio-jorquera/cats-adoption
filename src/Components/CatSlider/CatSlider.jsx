@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../../styles/Components.css"; 
+import "./CatSlider.module.css"; 
 import CatService from "../../services/catService"; 
 import CatCard from "../CatCard/CatCard"; 
 
