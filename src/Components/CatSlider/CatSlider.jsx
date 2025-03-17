@@ -1,79 +1,56 @@
 import { useState, useEffect } from "react";
-import React from "react";
-import CatService from "../../services/catService";
-import "./../../styles/Components.css";
-import CatCard from "../CatCard/CatCard";
-import Button from "../Button/Button";
+import styles from "./CatSlider.module.css"; 
+import CatService from "../../services/catService"; 
+import CatCard from "../CatCard/CatCard"; 
 
-const CARDS_VISIBLE = 4; // Mostrar 4 gatos a la vez
+export default function Slider() {
+  const [cats, setCats] = useState([]); 
+  const [currentIndex, setCurrentIndex] = useState(0); 
+  const itemsPerSlide = 5; // Número de tarjetas que se muestran por vez
 
-const CatSlider = () => {
-  const [cats, setCats] = useState([]);
-  const [startIndex, setStartIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-
+  // desde aquí llamamos a CatService y no desde la card
   useEffect(() => {
     const fetchCats = async () => {
-      setLoading(true);
-      const fetchedCats = await CatService.getCats();
-      console.log("Gatos obtenidos:", fetchedCats);
-      setCats(fetchedCats);
-      setLoading(false);
+      const data = await CatService.getCats(); 
+      setCats(data); // Establecemos los datos en el estado
     };
 
     fetchCats();
-  }, []);
+  }, []); // Solo se ejecuta una vez cuando el componente se monta
 
-  const handleNextClick = () => {
-    setStartIndex((prev) => {
-      // Si estamos al final de la lista, reiniciar el índice
-      if (prev + CARDS_VISIBLE >= cats.length) {
-        return 0; // Reiniciar al principio
-      }
-  
-      return prev + CARDS_VISIBLE;
+ 
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + itemsPerSlide;
+      return nextIndex < cats.length ? nextIndex : 0; // Vuelve al principio cuando llega al final
     });
   };
-  
-  const handlePrevClick = () => {
-    setStartIndex((prev) => {
-      const nextIndex = prev - CARDS_VISIBLE;
-  
-      // Si estamos al principio de la lista y retrocedemos más allá, ir al final
-      if (nextIndex < 0) {
-        return cats.length - (cats.length % CARDS_VISIBLE); // Regresar al último bloque de 4
-      }
-  
-      return nextIndex;
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const prevIndexNew = prevIndex - itemsPerSlide;
+      return prevIndexNew >= 0 ? prevIndexNew : cats.length - itemsPerSlide; // Vuelve al final cuando llega al principio
     });
   };
-  
-  
 
-  if (loading) {
-    return <p>Cargando gatitos... 🐱</p>;
+  if (cats.length === 0) {
+    return <div>Cargando gatos...</div>;
   }
 
   return (
-    <div className="sliderContainer">
-    
-    <button className="prevButton" onClick={handlePrevClick}>←</button>
-
-    <div className="cardContainer">
-      {cats.length > 0 ? (
-        cats.slice(startIndex, startIndex + CARDS_VISIBLE).map((cat) => (
-          <CatCard key={cat.id} cat={cat} onAdopt={() => alert(`¡Adoptaste a un gatito! 🐱`)} />
-        ))
-      ) : (
-        <p>No hay gatos disponibles 😿</p>
-      )}
+    <div className={styles.slider-container}>
+      {/* Botón de anterior */}
+      <button onClick={prevSlide} className={styles.arrow} id={styles.prevButton}>◀</button>
+      
+      {/* Contenedor de las tarjetas */}
+      <div className={styles.slider-content}>
+        {cats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
+          <CatCard key={index} cat={cat} />
+        ))}
+      </div>
+      
+      {/* Botón de siguiente */}
+      <button onClick={nextSlide} className={styles.arrow} id={styles.nextButton}>▶</button>
     </div>
-
-    
-    <button className="nextButton" onClick={handleNextClick}>→</button>
-  </div>
-    
   );
-};
-
-export default CatSlider;
+}  

@@ -28,14 +28,12 @@ body {
   display: flex;
   justify-content: center;
   margin: 0;
-  display: flex;
-  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
   padding: 20px; /* Agrega padding para pantallas pequeñas */
-  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
-}
+  /* box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+} 
 
 h1 {
   font-size: 3.2em;
@@ -46,15 +44,16 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 13px;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a30f3;
   cursor: pointer;
   transition: border-color 0.25s;
+  min-width: 8vw; 
 }
 
-button:hover {
+ button:hover {
   border-color: #dda610;
 }
 
