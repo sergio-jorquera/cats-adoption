@@ -3,9 +3,9 @@
 }
 
 .sliderContainer {
-  position: relative; /* Para que las flechas se posicionen respecto a este contenedor */
-  width: 99vw;
-  height: 65vh;
+ /* Para que las flechas se posicionen respecto a este contenedor */
+  width: 100%;
+  height: 100%;
   max-width: none;
   margin: 0 auto;
   overflow: hidden; /* Asegura que no haya scroll innecesario */
@@ -16,6 +16,7 @@
 }
 
 .sliderContent {
+  position: relative;
   display: flex;
   flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea si es necesario */
   justify-content: center;
@@ -40,14 +41,15 @@
   font-size: 20px;
   border-radius: 10%;
   z-index: 10;
+  width: 4vw;
 }
 
 #prevButton {
-  left: 30px;
+  left: 150px;
 }
 
 #nextButton {
-  right: 30px;
+  right: 150px;
 }
 
   
