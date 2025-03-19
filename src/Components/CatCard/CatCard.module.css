@@ -3,8 +3,12 @@
   text-align: center;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
+  width: 10vw;
+  height: 30vh;
+  flex-shrink: 0;
+  background-color: white ;
 }
 
 .catCard:hover {
@@ -12,7 +16,10 @@
 }
 
 .catImage {
-  width: 200px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  border-radius: 10%;
   height: 200px;
   object-fit: cover;
   border-bottom: 1px solid #eee;
