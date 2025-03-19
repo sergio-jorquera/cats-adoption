@@ -6,6 +6,7 @@ import CatCard from "../CatCard/CatCard";
 export default function Slider() {
   const [cats, setCats] = useState([]); 
   const [currentIndex, setCurrentIndex] = useState(0); 
+  const [isVisible, setIsVisible] = useState(true);
   const itemsPerSlide = 5; // Número de tarjetas que se muestran por vez
 
   // desde aquí llamamos a CatService y no desde la card
@@ -20,17 +21,25 @@ export default function Slider() {
 
  
   const nextSlide = () => {
+    setIsVisible(false);
+    setTimeout(() => {
     setCurrentIndex((prevIndex) => {
       const nextIndex = prevIndex + itemsPerSlide;
       return nextIndex < cats.length ? nextIndex : 0; // Vuelve al principio cuando llega al final
     });
+    setIsVisible(true);
+  },800);
   };
 
   const prevSlide = () => {
+    setIsVisible(false);
+    setTimeout(()=>{
     setCurrentIndex((prevIndex) => {
       const prevIndexNew = prevIndex - itemsPerSlide;
       return prevIndexNew >= 0 ? prevIndexNew : cats.length - itemsPerSlide; // Vuelve al final cuando llega al principio
     });
+    setIsVisible(true);
+  },800);
   };
 
   if (cats.length === 0) {
@@ -43,7 +52,7 @@ export default function Slider() {
       <button onClick={prevSlide} className={style.arrow} id={style.prevButton}>◀</button>
       
       {/* Contenedor de las tarjetas */}
-      <div className={style.sliderContent}>
+      <div className={`${style.sliderContent} ${!isVisible ? style.hidden : ''}`}>
         {cats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
           <CatCard key={index} cat={cat} />
         ))}

@@ -1,9 +1,6 @@
 * {
-  box-sizing: border-box; /* Asegura que el padding y el borde estén dentro de la altura */
-  
+  box-sizing: border-box;
 }
-
-
 
 .sliderContainer {
   position: relative; /* Para que las flechas se posicionen respecto a este contenedor */
@@ -15,23 +12,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  
 }
 
 .sliderContent {
   display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea */
-  justify-content: center; /* Centra las tarjetas horizontalmente */
+  flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea si es necesario */
+  justify-content: center;
   gap: 10px; /* Espacio entre las tarjetas */
-  transition: opacity 6s ease-in-out;
+  transition: opacity 800ms ease-in-out; /* Transición de opacidad */
+  opacity: 1;
   width: 100%;
-  margin-right: 25px;
-  margin-left: 25px;
-  position: relative;
-  background-color: rgb(195, 238, 229); /* Color de fondo */
 }
-
+.sliderContent.hidden {
+  opacity: 0; /* Se vuelve completamente visible */
+}
 
 .arrow {
   position: absolute;
@@ -51,7 +45,7 @@
   left: 30px;
 }
 
-#nextButton{
+#nextButton {
   right: 30px;
 }
 

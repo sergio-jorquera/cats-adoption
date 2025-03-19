@@ -3,7 +3,9 @@ import Routes from "./routes/AppRoutes"; // 👈 Renombrado para evitar conflict
 
 
 function App() {
-  return <Routes />;
+  return (
+  <Routes />
+  )
 }
 
 export default App;
