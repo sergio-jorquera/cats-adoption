@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .sliderContent {
@@ -22,7 +23,7 @@
   transition: opacity 800ms ease-in-out; /* Transición de opacidad */
   opacity: 1;
   width: 100%;
-}
+  }
 .sliderContent.hidden {
   opacity: 0; /* Se vuelve completamente visible */
 }
