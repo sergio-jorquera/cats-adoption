@@ -1,0 +1,10 @@
+.mainAdopt{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+}
+
+.form-textarea {
+    width: 100%;
+    height: 10vh;
+}

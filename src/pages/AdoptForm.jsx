@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from "react";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
+import "./styles/AdoptForm.css";
 
 const initialState = {
   fullName: "",
@@ -21,9 +22,9 @@ export default function AdoptPage() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    if (name === "fullName" && !/^[a-zA-Z\s]*$/.test(value)) return;
+    if (name === "fullName" && !/^[a-zA-Z\s]+$/.test(value)) return;
     if (name === "phone" && !/^\+?[0-9]{0,15}$/.test(value)) return;
-    if (name === "city" && !/^[a-zA-Z\s]*$/.test(value)) return;
+    if (name === "city" && !/^[a-zA-Z\s]+$/.test(value)) return;
     dispatch({ name, value: type === "checkbox" ? checked : value });
     setErrors({ ...errors, [name]: "" });
   };
@@ -33,18 +34,15 @@ export default function AdoptPage() {
     let newErrors = {};
 
     if (!/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(formData.fullName)) {
-      newErrors.fullName = "Debe ingresar al menos su nombre y apellido.";
+      newErrors.fullName = "Debe ingresar al menos dos palabras con solo letras.";
     }
 
-    if (
-      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)
-    ) {
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
       newErrors.email = "Por favor, introduce un correo válido.";
     }
 
     if (!/^\+?[0-9]{9,15}$/.test(formData.phone)) {
-      newErrors.phone =
-        "El número de teléfono debe tener al menos 9 cifras y opcionalmente empezar con prefijo del pais.";
+      newErrors.phone = "El número de teléfono debe tener al menos 9 cifras y opcionalmente empezar con '+'.";
     }
 
     if (!formData.terms) {
@@ -77,9 +75,7 @@ export default function AdoptPage() {
                 maxLength={50}
                 required
               />
-              {errors.fullName && (
-                <p className="error-text">{errors.fullName}</p>
-              )}
+              {errors.fullName && <p className="error-text">{errors.fullName}</p>}
             </div>
             <div className="formdiv-field">
               <label className="form-labels">E-mail: </label>
@@ -118,13 +114,15 @@ export default function AdoptPage() {
               />
             </div>
             <div className="formdiv-field">
-              <label className="form-labels">Mensaje: </label>
+              <label className="form-labels">Mensaje:</label>
               <textarea
+                className="form-textarea"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Escriba aquí su mensaje... (Máximo 250 caracteres)"
                 maxLength={250}
+                required
               />
             </div>
             <div className="formdiv-field">
@@ -140,9 +138,7 @@ export default function AdoptPage() {
               </label>
               {errors.terms && <p className="error-text">{errors.terms}</p>}
             </div>
-            <button type="submit" className="form-button">
-              Enviar
-            </button>
+            <button type="submit" className="form-button">Enviar</button>
           </form>
         </div>
       </div>
