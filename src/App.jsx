@@ -1,5 +1,5 @@
 import React from "react";
-import Routes from "./routes/AppRoutes"; // 👈 Renombrado para evitar conflicto
+import Routes from "./routes/AppRoutes";
 
 
 function App() {
