@@ -1,7 +1,7 @@
 import React from "react";
 import {Routes, Route} from 'react-router-dom';
-import AdoptPage from "../pages/AdoptPage.jsx"
-import HomePage from "../pages/HomePage.jsx"
+import AdoptPage from "../pages/AdoptPage/AdoptPage.jsx"
+import HomePage from "../pages/HomePage/HomePage.jsx"
 
 export default function AppRoutes() {
     return (

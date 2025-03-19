@@ -1,0 +1,55 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal */
+#mainAdopt {
+    flex-grow: 1;
+    min-height: 60vh;
+    width: 91.6%;
+    background-image: url('/adoptBackground.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+}
+
+/* Contenido principal */
+#mainContent {
+    padding: 10vh 5vw;
+    color: black;
+    max-width: 80%;
+}
+
+/* MEDIA QUERIES PARA HACERLO RESPONSIVE */
+@media (max-width: 768px) {
+    #mainAdopt {
+        flex-direction: column; /* Apilar elementos verticalmente */
+        align-items: center; /* Centrar elementos */
+        justify-content: flex-start;
+        padding-top: 5vh;
+    }
+
+    #mainContent {
+        padding-bottom: 10vh;
+        padding-right: 5vw;
+        text-align: center;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    #mainContent {
+        padding-bottom: 5vh;
+        padding: 5vw;
+        max-width: 95%;
+    }
+}
