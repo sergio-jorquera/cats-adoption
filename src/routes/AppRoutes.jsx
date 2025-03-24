@@ -8,7 +8,7 @@ export default function AppRoutes() {
     return (
         <>
         <Routes>
-            <Route path="/" element={<AdoptForm />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/adopt" element={<AdoptPage />} />
             <Route path="/adopt-form" element={<AdoptForm />} />
         </Routes>

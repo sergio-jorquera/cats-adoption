@@ -6,7 +6,7 @@ function CatCard({ cat, onAdopt }) {
   return (
     <div className={style.catCard}>
       <img className={style.catImage} src={cat.url} alt="Gatito" />
-      <Button to='adopt'/>
+      <Button to='adopt-form'/>
     </div>
   );
 }

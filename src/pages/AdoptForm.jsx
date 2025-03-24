@@ -16,37 +16,109 @@ function formReducer(state, action) {
   return { ...state, [action.name]: action.value };
 }
 
-export default function AdoptPage() {
+function langSelection(langEng) {
+  return langEng === true
+    ? {
+        mainTitle: "Gatitos felices",
+        description:
+          "Adopt a cat and make it happy, it will make you happy too! Fill out the form at right to start the process.",
+        contactNumber: "+34 999 999 999",
+        contactEmail: "gatitosfelices99@gmail.com",
+        location: "Madrid, Spain",
+        formTitle: "Adoption Form",
+        fullName: "Full name:",
+        email: "E-mail:",
+        phone: "Phone number:",
+        city: "City:",
+        message: "Message: ",
+        terms: "Accept that we process your data to contact you.",
+        submit: "Submit",
+        placeholders: {
+          fullName: "Enter your full name",
+          email: "Enter your email",
+          phone: "Enter your phone number with country code",
+          city: "Enter your city of residence",
+          message: "Write your message here... (Max 250 characters)",
+        },
+        errors: {
+          fullname: "You must enter at least first and last name",
+          email: "Please enter a valid email",
+          phone: "Enter a valid phone number",
+          terms: "You must accept the terms and conditions",
+        },
+      }
+    : {
+        mainTitle: "Gatitos felices",
+        description:
+          "Adopta un gato y hazlo feliz, te hará feliz a ti también! Rellena el formulario a la derecha para iniciar el proceso",
+        contactNumber: "+34 999 999 999",
+        contactEmail: "gatitosfelices99@gmail.com",
+        location: "Madrid, España",
+        formTitle: "Formulario de Adopción",
+        fullName: "Nombre completo:",
+        email: "E-mail:",
+        phone: "Número de teléfono:",
+        city: "Localidad:",
+        message: "Mensaje:",
+        terms: "Acepta que tratemos sus datos para poder contactar con usted.",
+        submit: "Enviar",
+        placeholders: {
+          fullName: "Introduzca su nombre",
+          email: "Introduzca su correo electrónico",
+          phone: "Introduzca su número de teléfono",
+          city: "Introduzca su localidad de residencia",
+          message: "Escriba su mensaje (Max 250 caracteres)",
+        },
+        errors: {
+          fullname: "Debe ingresar al menos nombre y apellido",
+          email: "Por favor, introduzca un correo válido",
+          phone: "Introduzca un número de teléfono válido",
+          terms: "Debe aceptar los términos y condiciones",
+        },
+      };
+}
+
+export default function AdoptPage(langEng) {
   const [formData, dispatch] = useReducer(formReducer, initialState);
   const [errors, setErrors] = useState({});
 
+  const text = langSelection(langEng);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    if (name === "fullName" && !/^[a-zA-Z\s]+$/.test(value)) return;
+
+    if (name === "fullName" && value !== "" && !/^[a-zA-Z\s]+$/.test(value))
+      return;
     if (name === "phone" && !/^\+?[0-9]{0,15}$/.test(value)) return;
-    if (name === "city" && !/^[a-zA-Z\s]+$/.test(value)) return;
+    if (name === "city" && value !== "" && !/^[a-zA-Z\s]+$/.test(value)) return;
+
     dispatch({ name, value: type === "checkbox" ? checked : value });
-    setErrors({ ...errors, [name]: "" });
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = {};
 
-    if (!/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(formData.fullName)) {
-      newErrors.fullName = "Debe ingresar al menos dos palabras con solo letras.";
+    if (
+      !/^[a-zA-Z\s]+$/.test(formData.fullName) ||
+      formData.fullName.trim().split(" ").length < 2
+    ) {
+      newErrors.fullName = text.errors.fullname;
     }
 
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
-      newErrors.email = "Por favor, introduce un correo válido.";
+    if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)
+    ) {
+      newErrors.email = text.errors.email;
     }
 
     if (!/^\+?[0-9]{9,15}$/.test(formData.phone)) {
-      newErrors.phone = "El número de teléfono debe tener al menos 9 cifras y opcionalmente empezar con '+'.";
+      newErrors.phone = text.errors.phone;
     }
 
     if (!formData.terms) {
-      newErrors.terms = "Debes aceptar los términos y condiciones.";
+      newErrors.terms = text.errors.terms;
     }
 
     setErrors(newErrors);
@@ -58,88 +130,71 @@ export default function AdoptPage() {
   return (
     <>
       <Header />
-      <div id="mainAdopt">
-        <div id="mainContent">
-          <h1>Formulario de adopción</h1>
-          <p>
-            Rellene el siguiente formulario si esta interesado en adoptar y le
-            contactaremos con más detalles:
-          </p>
-          <form onSubmit={handleSubmit} className="adopt-form">
-            <div className="formdiv-field">
-              <label className="form-labels">Nombre completo: </label>
-              <input
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                maxLength={50}
-                required
-              />
-              {errors.fullName && <p className="error-text">{errors.fullName}</p>}
-            </div>
-            <div className="formdiv-field">
-              <label className="form-labels">E-mail: </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="xxxx@xxx.xx"
-                maxLength={30}
-                required
-              />
-              {errors.email && <p className="error-text">{errors.email}</p>}
-            </div>
-            <div className="formdiv-field">
-              <label className="form-labels">Número de teléfono: </label>
-              <input
-                type="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="+XXX(XXXXXXXX)"
-                required
-              />
-              {errors.phone && <p className="error-text">{errors.phone}</p>}
-            </div>
-            <div className="formdiv-field">
-              <label className="form-labels">Localidad: </label>
-              <input
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                placeholder="Localidad de residencia"
-                maxLength={30}
-                required
-              />
-            </div>
-            <div className="formdiv-field">
-              <label className="form-labels">Mensaje:</label>
-              <textarea
-                className="form-textarea"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Escriba aquí su mensaje... (Máximo 250 caracteres)"
-                maxLength={250}
-                required
-              />
-            </div>
-            <div className="formdiv-field">
-              <input
-                type="checkbox"
-                name="terms"
-                checked={formData.terms}
-                onChange={handleChange}
-                className="form-checkbox"
-              />
-              <label className="form-labels">
-                Acepta que tratemos sus datos para poder contactar con usted.
-              </label>
-              {errors.terms && <p className="error-text">{errors.terms}</p>}
-            </div>
-            <button type="submit" className="form-button">Enviar</button>
-          </form>
+      <div className="mainAdopt">
+        <div className="mainLeft">
+          <h1></h1>
+          <p className="description"></p>
+        </div>
+        <div className="mainRight">
+          <div className="mainContent">
+            <h2>{text.formTitle}</h2>
+            <form onSubmit={handleSubmit} className="adopt-form">
+              <div className="formdiv-field">
+                <label>{text.fullName}</label>
+                <input
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.fullName && (
+                  <p className="error-text">{errors.fullName}</p>
+                )}
+              </div>
+              <div className="formdiv-field">
+                <label>{text.email}</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.email && <p className="error-text">{errors.email}</p>}
+              </div>
+              <div className="formdiv-field">
+                <label>{text.phone}</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.phone && <p className="error-text">{errors.phone}</p>}
+              </div>
+              <div className="formdiv-field">
+                <label>{text.city}</label>
+                <input
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="formdiv-field">
+                <input
+                  type="checkbox"
+                  name="terms"
+                  checked={formData.terms}
+                  onChange={handleChange}
+                />
+                {errors.terms && <p className="error-text">{errors.terms}</p>}
+                <label>{text.terms}</label>
+              </div>
+              <button type="submit">{text.submit}</button>
+            </form>
+          </div>
         </div>
       </div>
       <Footer />
