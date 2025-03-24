@@ -1,18 +1,19 @@
 import React from 'react';
-import { useContext } from 'react';
-import { ThemeContext } from "./../context/ThemeContext"
 import CatSlider from '../Components/CatSlider/CatSlider';
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
+import styles from "./styles/HomePage.module.css"
+
 
 function HomePage() {
-  const { theme, toggleTheme } = useContext(ThemeContext); // Accede a toggleTheme
+ 
   return (
-    <div className={theme}>
+    <div className={styles.containerPage}>
       <Header/>
       <h1>Adopta un Gatito</h1>
-      <button onClick={toggleTheme}>Cambiar Tema</button>
+      <div className={styles.containerSlider}>
       <CatSlider/>
+      </div>
       <Footer/>
   </div>
   );
