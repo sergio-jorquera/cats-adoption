@@ -1,23 +1,27 @@
 .Button {
-    background-color: rgb(0, 81, 255);
-    color: white;
-    padding: 10px 20px; /* Añade padding para hacer el botón más grande */
-    border: none; /* Elimina el borde del botón */
-    border-radius: 5px; /* Añade bordes redondeados */
-    font-size: 1rem; /* Aumenta el tamaño de la fuente */
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .Button:hover {
-    background-color: rgb(245, 245, 154);
-    color: black;
-  }
-  
-  .Button:active {
-    transform: translateY(2px);
-  }
+  background-color: rgb(0, 81, 255);
+  color: white;
+  display: flex; /* Usamos flexbox para centrar el texto */
+  justify-content: center; /* Centra el texto horizontalmente */
+  align-items: center; /* Centra el texto verticalmente */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+  box-sizing: border-box;
+}
 
+.Button:hover {
+  background-color: rgb(245, 245, 154);
+  color: black;
+}
+
+.Button:active {
+  transform: translateY(2px);
+}
 
 
 

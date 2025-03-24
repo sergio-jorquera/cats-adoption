@@ -15,12 +15,12 @@
   
   /* Contenedor de las tarjetas */
   .sliderContent {
-    display: flex; /* Flexbox para poner las tarjetas en fila horizontal */
+    display: flex; /* Flexbox para poner las tarjetas en fila horizontal */   
     transition: transform 0.5s ease;
     width: 100%;
     margin-right: 25px;
     margin-left: 25px;
-  }
+      }
   
   /* Los botones ya tienen estilo, solo asegúrate de que estén posicionados correctamente */
   .arrow {
