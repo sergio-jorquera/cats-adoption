@@ -6,9 +6,11 @@ import "./App.css";
 
 function App() {
   return (
+    <languageProvider>
     <ThemeProvider>
       <Routes />
     </ThemeProvider>
+    </languageProvider>
  
   )
 }
