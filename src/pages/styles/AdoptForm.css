@@ -1,31 +1,89 @@
 .mainAdopt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 84.1vh;
+  color: black;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.mainLeft {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  width: 50vw;
+  background-color: #f0f0f0;
+  height: 100%;
+}
+
+.mainContentLeft {
+  padding-left: 2vw;
+  font-size: 3vh;
+}
+li {
+  list-style-type: none;
+}
+.mainRight {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50vw;
+  background-color: #e0e0e0;
+  padding: 3vh;
+  height: 100%;
+}
+.mainContentRight {
+  padding-top: 10vh;
+  font-size: 3vh;
+}
+h2 {
+  margin-bottom: 4vh;
+}
+.formdiv-field {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 0.5vh;
+}
+button {
+  margin-top: 2vh;
+  width: 40vw;
+  background-color: rgb(0, 81, 255);
+  color: white;
+  transition: all 0.2s ease;
+  padding: 1vh 1vw;
+  font-size: 2.6vh;
+}
+button:hover {
+  background-color: rgb(245, 245, 154);
+  color: black;
+  cursor: pointer;
+}
+button:active {
+  transform: translateY(2px);
+}
+.form-textarea {
+  width: 100%;
+  height: 10vh;
+}
+
+@media (max-width: 768px) {
+  .mainAdopt {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    height: 100%;
-    color: black;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-  }
-  .mainLeft {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-    width: 50vw;
-    background-color: #f0f0f0;
-  }
-  .mainRight {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 50vw;
-    background-color: #e0e0e0;
-    padding: 3vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    overflow-y: auto;
+    max-height: 100vh;
   }
 
-.form-textarea {
+  .mainLeft, .mainRight {
     width: 100%;
-    height: 10vh;
+    height: auto;
+  }
+  .mainContentRight {
+    padding-top: 0;
+    font-size: 3vh;
+  }
 }
