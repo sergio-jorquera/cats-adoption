@@ -2,6 +2,8 @@ import React, { useReducer, useState } from "react";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
+import { LanguageContext } from "../context/LanguageContext.jsx";
+import { useContext } from "react";
 import "./styles/AdoptForm.css";
 
 const initialState = {
@@ -192,7 +194,7 @@ export default function AdoptPage() {
                 <label>{text.terms}</label>
                 {errors.terms && <p className="error-text">{errors.terms}</p>}
               </div>
-              <button type="submit">{text.submit}</button>
+              <button className= "submitButton" type="submit">{text.submit}</button>
             </form>
           </div>
         </div>

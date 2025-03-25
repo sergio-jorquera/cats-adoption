@@ -1,64 +1,74 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import style from "./CatSlider.module.css"; 
 import CatService from "../../services/catService"; 
 import CatCard from "../CatCard/CatCard"; 
+import { LanguageContext } from "../../context/LanguageContext";
+import { translateText } from "../../services/translateService";
 
 export default function Slider() {
+  const { langEng } = useContext(LanguageContext);
   const [cats, setCats] = useState([]); 
+  const [translatedCats, setTranslatedCats] = useState([]); 
   const [currentIndex, setCurrentIndex] = useState(0); 
   const [isVisible, setIsVisible] = useState(true);
-  const itemsPerSlide = 5; // Número de tarjetas que se muestran por vez
+  const itemsPerSlide = 5;
 
-  // desde aquí llamamos a CatService y no desde la card
   useEffect(() => {
     const fetchCats = async () => {
-      const data = await CatService.getCats(); 
-      setCats(data); // Establecemos los datos en el estado
+      const data = await CatService.getCats();
+      setCats(data);
+
+      // Si está en inglés, traducir descripciones
+      if (langEng) {
+        const translatedData = await Promise.all(
+          data.map(async (cat) => ({
+            ...cat,
+            description: await translateText(cat.description, "en"),
+          }))
+        );
+        setTranslatedCats(translatedData);
+      } else {
+        setTranslatedCats(data);
+      }
     };
 
     fetchCats();
-  }, []); // Solo se ejecuta una vez cuando el componente se monta
+  }, [langEng]); // Se actualiza cuando cambia el idioma
 
- 
   const nextSlide = () => {
     setIsVisible(false);
     setTimeout(() => {
-    setCurrentIndex((prevIndex) => {
-    const nextIndex = prevIndex + itemsPerSlide;
-    return nextIndex < cats.length ? nextIndex : 0; // Vuelve al principio cuando llega al final
-    });
-    setIsVisible(true);
-  },800);
+      setCurrentIndex((prevIndex) =>
+        prevIndex + itemsPerSlide < translatedCats.length ? prevIndex + itemsPerSlide : 0
+      );
+      setIsVisible(true);
+    }, 800);
   };
 
   const prevSlide = () => {
     setIsVisible(false);
-    setTimeout(()=>{
-    setCurrentIndex((prevIndex) => {
-      const prevIndexNew = prevIndex - itemsPerSlide;
-      return prevIndexNew >= 0 ? prevIndexNew : cats.length - itemsPerSlide; // Vuelve al final cuando llega al principio
-    });
-    setIsVisible(true);
-  },800);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex - itemsPerSlide >= 0 ? prevIndex - itemsPerSlide : translatedCats.length - itemsPerSlide
+      );
+      setIsVisible(true);
+    }, 800);
   };
 
-  if (cats.length === 0) {
+  if (translatedCats.length === 0) {
     return <div>Cargando gatos...</div>;
   }
 
   return (
     <div className={style.sliderContainer}>
-      {/* Botón de anterior */}
       <button onClick={prevSlide} className={style.arrow} id={style.prevButton}>◀</button>
       
-      {/* Contenedor de las tarjetas */}
       <div className={`${style.sliderContent} ${!isVisible ? style.hidden : ''}`}>
-        {cats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
+        {translatedCats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
           <CatCard key={index} cat={cat} />
         ))}
       </div>
       
-      {/* Botón de siguiente */}
       <button onClick={nextSlide} className={style.arrow} id={style.nextButton}>▶</button>
     </div>
   );

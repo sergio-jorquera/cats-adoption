@@ -29,3 +29,14 @@
   .navLink:hover {
     color: #e91e63; /* Un rosa vibrante para el hover */
   }
+  .buttonHeader {
+    background-color: rgb(192, 194, 199);
+    color:rgb(59, 59, 59);
+    height: 3vh;
+    width: 6vw;
+    transition: all 0.2s ease;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

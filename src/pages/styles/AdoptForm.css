@@ -14,7 +14,6 @@
   align-items: start;
   flex-direction: column;
   width: 50vw;
-  background-color: #f0f0f0;
   height: 100%;
 }
 
@@ -30,7 +29,6 @@ li {
   justify-content: flex-start;
   align-items: flex-start;
   width: 50vw;
-  background-color: #e0e0e0;
   padding: 3vh;
   height: 100%;
 }
@@ -47,7 +45,7 @@ h2 {
   gap: 1vw;
   margin-bottom: 0.5vh;
 }
-button {
+.submitButton {
   margin-top: 2vh;
   width: 40vw;
   background-color: rgb(0, 81, 255);
@@ -56,12 +54,12 @@ button {
   padding: 1vh 1vw;
   font-size: 2.6vh;
 }
-button:hover {
+.submitButton:hover {
   background-color: rgb(245, 245, 154);
   color: black;
   cursor: pointer;
 }
-button:active {
+.submitButton:active {
   transform: translateY(2px);
 }
 .form-textarea {
