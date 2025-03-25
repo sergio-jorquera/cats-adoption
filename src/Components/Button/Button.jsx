@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LanguageContext } from "./../../context/LanguageContext"; // Asegúrate de la ruta correcta
 import styles from "./Button.module.css";
 
-export default function Button({ to, langEng }) {
+export default function Button({ to }) {
   const navigate = useNavigate();
+  const { langEng } = useContext(LanguageContext); // ⬅️ Obtiene el idioma del contexto
   let textButton = "";
 
   const handleNavigation = () => {
@@ -16,23 +18,19 @@ export default function Button({ to, langEng }) {
     }
   };
 
-  if (langEng) {
-    textButton =
-      to === "adopt" || to === "adopt-form" ? "Adopt me!" : "Back to home";
-  } else {
-    textButton =
-      to === "adopt" || to === "adopt-form" ? "Adoptame!" : "Volver a inicio";
-  }
+  // Definir el texto según el idioma
+  textButton = langEng
+    ? to === "adopt" || to === "adopt-form"
+      ? "Adopt me!"
+      : "Back to home"
+    : to === "adopt" || to === "adopt-form"
+    ? "¡Adóptame!"
+    : "Volver a inicio";
 
   return (
-    <>
-      <button
-        className={styles.Button}
-        type="button"
-        onClick={handleNavigation}
-      >
-        {textButton}
-      </button>
-    </>
+    <button className={styles.Button} type="button" onClick={handleNavigation}>
+      {textButton}
+    </button>
   );
 }
+
