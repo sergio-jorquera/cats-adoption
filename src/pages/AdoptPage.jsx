@@ -11,7 +11,7 @@ export default function AdoptPage() {
       <div id="mainAdopt">
         <div id="mainContent">
         <p>Página web actualmente en construcción:</p>
-        <Button to=""></Button>
+        <Button className="buttonAdoptPage" to=""></Button>
         </div>
       </div>
       <Footer />

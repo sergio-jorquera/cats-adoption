@@ -20,6 +20,11 @@ body {
   justify-content: center;
 }
 
+.buttonAdoptPage {
+ width: 4vw;
+}
+
+
 #mainContent {
   padding-bottom: 30vh;
   padding-right: 65vw;
