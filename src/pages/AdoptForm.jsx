@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from "react";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 import "./styles/AdoptForm.css";
@@ -21,11 +22,11 @@ function langSelection(langEng) {
     ? {
         mainTitle: "Gatitos felices",
         description:
-          "Adopt a cat and make it happy, it will make you happy too! Fill out the form at right to start the process.",
+          "Adopt a cat and make it happy, it will make you happy too! Fill out the form to start the process.",
         contactNumber: "+34 999 999 999",
         contactEmail: "gatitosfelices99@gmail.com",
         location: "Madrid, Spain",
-        formTitle: "Adoption Form",
+        formTitle: "Adoption Form:",
         fullName: "Full name:",
         email: "E-mail:",
         phone: "Phone number:",
@@ -33,13 +34,6 @@ function langSelection(langEng) {
         message: "Message: ",
         terms: "Accept that we process your data to contact you.",
         submit: "Submit",
-        placeholders: {
-          fullName: "Enter your full name",
-          email: "Enter your email",
-          phone: "Enter your phone number with country code",
-          city: "Enter your city of residence",
-          message: "Write your message here... (Max 250 characters)",
-        },
         errors: {
           fullname: "You must enter at least first and last name",
           email: "Please enter a valid email",
@@ -50,11 +44,11 @@ function langSelection(langEng) {
     : {
         mainTitle: "Gatitos felices",
         description:
-          "Adopta un gato y hazlo feliz, te hará feliz a ti también! Rellena el formulario a la derecha para iniciar el proceso",
+          "Adopta un gato y hazlo feliz, te hará feliz a ti también! Rellena el formulario para iniciar el proceso.",
         contactNumber: "+34 999 999 999",
         contactEmail: "gatitosfelices99@gmail.com",
         location: "Madrid, España",
-        formTitle: "Formulario de Adopción",
+        formTitle: "Formulario de Adopción:",
         fullName: "Nombre completo:",
         email: "E-mail:",
         phone: "Número de teléfono:",
@@ -62,13 +56,6 @@ function langSelection(langEng) {
         message: "Mensaje:",
         terms: "Acepta que tratemos sus datos para poder contactar con usted.",
         submit: "Enviar",
-        placeholders: {
-          fullName: "Introduzca su nombre",
-          email: "Introduzca su correo electrónico",
-          phone: "Introduzca su número de teléfono",
-          city: "Introduzca su localidad de residencia",
-          message: "Escriba su mensaje (Max 250 caracteres)",
-        },
         errors: {
           fullname: "Debe ingresar al menos nombre y apellido",
           email: "Por favor, introduzca un correo válido",
@@ -132,11 +119,24 @@ export default function AdoptPage(langEng) {
       <Header />
       <div className="mainAdopt">
         <div className="mainLeft">
-          <h1></h1>
-          <p className="description"></p>
+          <div className="mainContentLeft">
+            <h1>{text.mainTitle}</h1>
+            <p className="description">{text.description}</p>
+            <ul>
+              <li>
+                <FiPhone /> {text.contactNumber}
+              </li>
+              <li>
+                <FiMail /> {text.contactEmail}
+              </li>
+              <li>
+                <FiMapPin /> {text.location}
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="mainRight">
-          <div className="mainContent">
+          <div className="mainContentRight">
             <h2>{text.formTitle}</h2>
             <form onSubmit={handleSubmit} className="adopt-form">
               <div className="formdiv-field">
