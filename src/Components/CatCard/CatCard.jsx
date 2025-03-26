@@ -5,6 +5,11 @@ import style from './CatCard.module.css';
 function CatCard({ cat }) {
   const [expanded, setExpanded] = useState(false);
 
+  function textShorter(text) {
+    let finalText = text.split('.');
+    return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
+  }
+
   const toggleExpand = () => {
     setExpanded((prev) => !prev);
   };
@@ -17,7 +22,7 @@ function CatCard({ cat }) {
         <div className={style.descriptionContainer}>
           <h3 className={style.catBreed}>{cat.breeds[0].name}</h3>
           <p className={`${style.catDescription} ${expanded ? style.expanded : ''}`}>
-            {cat.description || cat.breeds[0].description}
+            {textShorter((cat.description || cat.breeds[0].description))}
           </p>
           <button className={style.expandButton} onClick={toggleExpand}>
             {expanded ? "Ver menos" : "Ver más"}
