@@ -4,10 +4,14 @@
 }
 .footer {
     background-color: #b2dfdb; /* Un verde azulado relajante */
-    padding: 1rem;
+    
     text-align: center;
     color: #444;
-    font-size: 0.9rem;
+    font-size: 1.2vh;
     border-top: 1px solid #ccc;
+    height: 6.5vh;
     /* margin-top: 50px; */
+  }
+  p {
+    size: 1vh;
   }

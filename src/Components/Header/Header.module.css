@@ -3,32 +3,45 @@
   --primary-font: "Neulis Sans";
 }
 .header {
-  background-color: #fceabb; /* Un amarillo suave y cálido */
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-}
-
-.nav {
-  display: flex;
-}
-
-.navLink {
-  color: #555;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.navLink:hover {
-  color: #e91e63; /* Un rosa vibrante para el hover */
-}
+    background-color: #fceabb; /* Un amarillo suave y cálido */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 8vh;
+  }
+  
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navLink {
+    color: #555;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: #e91e63; /* Un rosa vibrante para el hover */
+  }
+  .buttonHeader {
+    background-color: rgb(192, 194, 199);
+    color:rgb(59, 59, 59);
+    height: 3vh;
+    width: 6vw;
+    transition: all 0.2s ease;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

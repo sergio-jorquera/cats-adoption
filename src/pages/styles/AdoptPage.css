@@ -13,8 +13,8 @@ body {
 
 #mainAdopt {
   flex-grow: 1;
-  min-height: calc(100vh - 16vh);
-  width: 100vw;
+ height: calc(100vh - 14.5vh);
+  /* width: 100vh; */
   background-image: url("/adoptBackground.avif");
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,6 +23,11 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.buttonAdoptPage {
+ width: 4vw;
+}
+
 
 #mainContent {
   padding-bottom: 30vh;

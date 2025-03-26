@@ -1,10 +1,18 @@
 import React from "react";
-import Routes from "./routes/AppRoutes";
+import Routes from "./routes/AppRoutes"; // 👈 Renombrado para evitar conflicto
+import { ThemeProvider } from "./context/ThemeContext";
+import { LanguageProvider } from "./context/LanguageContext";
+import "./App.css";
 
 
 function App() {
   return (
-  <Routes />
+    <LanguageProvider>
+    <ThemeProvider>
+      <Routes />
+    </ThemeProvider>
+    </LanguageProvider>
+ 
   )
 }
 

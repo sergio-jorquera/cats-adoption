@@ -2,7 +2,10 @@ import React, { useReducer, useState } from "react";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
+import { LanguageContext } from "../context/LanguageContext.jsx";
+import { useContext } from "react";
 import "./styles/AdoptForm.css";
+import "./../App.css";
 
 const initialState = {
   fullName: "",
@@ -18,9 +21,9 @@ function formReducer(state, action) {
 }
 
 function langSelection(langEng) {
-  return langEng === true
+  return langEng
     ? {
-        mainTitle: "Gatitos felices",
+        mainTitle: "Happy Kittens",
         description:
           "Adopt a cat and make it happy, it will make you happy too! Fill out the form to start the process.",
         contactNumber: "+34 999 999 999",
@@ -42,7 +45,7 @@ function langSelection(langEng) {
         },
       }
     : {
-        mainTitle: "Gatitos felices",
+        mainTitle: "Gatitos Felices",
         description:
           "Adopta un gato y hazlo feliz, te hará feliz a ti también! Rellena el formulario para iniciar el proceso.",
         contactNumber: "+34 999 999 999",
@@ -58,18 +61,18 @@ function langSelection(langEng) {
         submit: "Enviar",
         errors: {
           fullname: "Debe ingresar al menos nombre y apellido",
-          email: "Por favor, introduzca un correo válido",
-          phone: "Introduzca un número de teléfono válido",
-          terms: "Debe aceptar los términos y condiciones",
+          email: "Por favor, introduce un correo válido",
+          phone: "Introduce un número de teléfono válido",
+          terms: "Debes aceptar los términos y condiciones",
         },
       };
 }
 
-export default function AdoptPage(langEng) {
+export default function AdoptPage() {
+  const { langEng } = useContext(LanguageContext); // ⬅️ Obtener idioma desde el contexto
   const [formData, dispatch] = useReducer(formReducer, initialState);
   const [errors, setErrors] = useState({});
-
-  const text = langSelection(langEng);
+  const text = langSelection(langEng); // ⬅️ Pasar el idioma al selector de texto
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -189,10 +192,10 @@ export default function AdoptPage(langEng) {
                   checked={formData.terms}
                   onChange={handleChange}
                 />
-                {errors.terms && <p className="error-text">{errors.terms}</p>}
                 <label>{text.terms}</label>
+                {errors.terms && <p className="error-text">{errors.terms}</p>}
               </div>
-              <button type="submit">{text.submit}</button>
+              <button className="submitButton" type="submit">{text.submit}</button>
             </form>
           </div>
         </div>

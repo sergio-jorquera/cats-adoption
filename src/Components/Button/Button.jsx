@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LanguageContext } from "./../../context/LanguageContext"; // Asegúrate de la ruta correcta
 import styles from "./Button.module.css";
 
-export default function Button({ to, langEng }) {
+export default function Button({ to }) {
   const navigate = useNavigate();
+  const { langEng } = useContext(LanguageContext); // ⬅️ Obtiene el idioma del contexto
   let textButton = "";
 
   const handleNavigation = () => {
@@ -25,14 +27,9 @@ export default function Button({ to, langEng }) {
   }
 
   return (
-    <>
-      <button
-        className={styles.Button}
-        type="button"
-        onClick={handleNavigation}
-      >
-        {textButton}
-      </button>
-    </>
+    <button className={styles.Button} type="button" onClick={handleNavigation}>
+      {textButton}
+    </button>
   );
 }
+
