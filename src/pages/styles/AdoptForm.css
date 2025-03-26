@@ -1,3 +1,8 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
+
 .mainAdopt {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -17,9 +22,14 @@
   height: 100%;
 }
 
+h1 {
+  font-family: var(--titles-font);
+}
+
 .mainContentLeft {
   padding-left: 2vw;
-  font-size: 3vh;
+  font-size: 2vh;
+  font-family: var(--primary-font);
 }
 li {
   list-style-type: none;
@@ -34,10 +44,12 @@ li {
 }
 .mainContentRight {
   padding-top: 10vh;
-  font-size: 3vh;
+  font-size: 2vh;
+  font-family: var(--primary-font);
 }
 h2 {
   margin-bottom: 4vh;
+  font-family: var(--titles-font);
 }
 .formdiv-field {
   display: flex;
@@ -53,6 +65,7 @@ h2 {
   transition: all 0.2s ease;
   padding: 1vh 1vw;
   font-size: 2.6vh;
+  font-family: var(--primary-font);
 }
 .submitButton:hover {
   background-color: rgb(245, 245, 154);

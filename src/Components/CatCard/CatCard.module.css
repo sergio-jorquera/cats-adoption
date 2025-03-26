@@ -1,3 +1,7 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 .catCard {
   border: 1px solid #ddd;
   border-radius: 8px;

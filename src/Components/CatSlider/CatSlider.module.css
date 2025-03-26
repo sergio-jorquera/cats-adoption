@@ -1,3 +1,7 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 * {
   box-sizing: border-box;
 }
@@ -25,7 +29,7 @@
   transition: opacity 800ms ease-in-out; /* Transición de opacidad */
   opacity: 1;
   width: 100%;
-  }
+}
 .sliderContent.hidden {
   opacity: 0; /* Se vuelve completamente visible */
 }

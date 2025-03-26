@@ -1,3 +1,7 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 .header {
     background-color: #fceabb; /* Un amarillo suave y cálido */
     padding: 1rem 2rem;
