@@ -13,9 +13,10 @@
   border: none;
   border-radius: 5px;
   font-size: 0.7rem;
+  font-family: var(--primary-font);
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 5vw; /* Asegura que el botón ocupe todo el ancho */
+  width: 6vw; /* Asegura que el botón ocupe todo el ancho */
   min-width: 5vw;
   box-sizing: border-box;
 }

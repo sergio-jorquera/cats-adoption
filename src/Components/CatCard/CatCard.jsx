@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button';
 import style from './CatCard.module.css';
+import { useContext } from 'react'; // Asegúrate de importar correctamente el hook del contexto
+import { LanguageContext } from '../../context/LanguageContext';
 
 function CatCard({ cat }) {
+  const { langEng } =  useContext(LanguageContext); // Accede al valor langEng desde el contexto
+ 
+ 
   const [expanded, setExpanded] = useState(false);
+  const textButton =langEng 
+  ? (expanded ? 'See less' : 'See more') 
+  : (expanded ? 'Ver menos' : 'Ver más');
 
+  // Función para acortar el texto
   function textShorter(text) {
     let finalText = text.split('.');
     return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
   }
 
-  const toggleExpand = () => {
+  // Alternar el estado de expandir/contraer la descripción
+  const handleToggleExpand = () => {
     setExpanded((prev) => !prev);
   };
 
@@ -24,20 +34,21 @@ function CatCard({ cat }) {
           <p className={`${style.catDescription} ${expanded ? style.expanded : ''}`}>
             {textShorter((cat.description || cat.breeds[0].description))}
           </p>
-          <button className={style.expandButton} onClick={toggleExpand}>
-            {expanded ? "Ver menos" : "Ver más"}
+          <button className={style.expandButton} onClick={handleToggleExpand}>
+            {textButton}
           </button>
         </div>
       )}
 
       <div className={style.adopt}>
-        <Button to='adopt-form' />
+        <Button to="adopt-form" />
       </div>
     </div>
   );
 }
 
 export default CatCard;
+
 
 
 // import React from 'react';
