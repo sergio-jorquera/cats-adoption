@@ -3,9 +3,9 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  width: 11vw;
-  height: 45vh;
-  margin: 10px;
+  width: 13.8vw;
+  height: 55vh;
+  /* margin: 10px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +14,7 @@
 }
 
 .catImage {
+  margin-top: 0;
   border-left: 10px solid white;
   border-right: 10px solid white;
   width: 100%;
@@ -30,6 +31,7 @@
   display: flex;
   flex-direction: column;
   color: black;
+  
 }
 /* 
 .breedInfo {
@@ -95,7 +97,7 @@
   -webkit-box-orient: vertical;
   transition: max-height 0.3s ease-in-out;
   margin-bottom: 3px;
-  font-size: 11px;
+  font-size: 1.5vh;
   color: black;
 }
 

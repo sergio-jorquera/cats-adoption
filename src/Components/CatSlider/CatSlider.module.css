@@ -12,11 +12,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   
 }
 
 .sliderContent {
-  position: relative;
+  
   display: flex;
   flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea si es necesario */
   justify-content: center;
@@ -45,11 +46,11 @@
 }
 
 #prevButton {
-  left: 150px;
+  left: 6vw;
 }
 
 #nextButton {
-  right: 150px;
+  right:  6vw;
 }
 
 
