@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { LanguageContext } from './../context/LanguageContext';  // Asegúrate de la ruta correcta
 import CatSlider from '../Components/CatSlider/CatSlider';
 import Header from "../Components/Header/Header";
@@ -7,6 +7,10 @@ import styles from "./styles/HomePage.module.css"
 
 function HomePage() {
   const { langEng } = useContext(LanguageContext); // Accede al contexto de idioma
+
+    useEffect(() => {
+      document.title = langEng ? "Home" : "Inicio" ;
+    }, [langEng])
   
   // Definir los textos según el idioma
   const pageTitle = langEng ? "Adopt a Kitten" : "Adopta un Gatito";

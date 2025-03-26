@@ -13,12 +13,13 @@ function Header() {
   const textHeader= langEng ? "Happy kittens" : "Gatitos felices";
   const textAdopt =langEng ? "Adopt a Kitten" : "Adopta un gatito";
   const textStart =langEng ? "Start" : "Inicio";
+  const textAlt = langEng ? "Adopt a Kitten logo" : "Logo de Adopta un gatito";
   
   
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link to="/">😺 {textHeader} 🐾</Link>
+        <Link to="/"><img src='../../../images/logo.webp' alt={textAlt} className={styles.imgLogo}/> {textHeader} 🐾</Link>
       </div>
       <nav className={styles.nav}>
         {/* Botón para cambiar tema */} 
