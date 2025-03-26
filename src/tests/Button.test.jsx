@@ -22,7 +22,7 @@ test("El botón muestra el texto requerido, en el idioma requerido (ESP) con '/a
     </MemoryRouter>
   );
 
-  expect(screen.getByText("Adoptame!")).toBeInTheDocument();
+  expect(screen.getByText("¡Adóptame!")).toBeInTheDocument();
 });
 
 test("El botón muestra el texto requerido, en el idioma requerido (ESP) con '/adopt-form'", () => {
@@ -32,7 +32,7 @@ test("El botón muestra el texto requerido, en el idioma requerido (ESP) con '/a
     </MemoryRouter>
   );
 
-  expect(screen.getByText("Adoptame!")).toBeInTheDocument();
+  expect(screen.getByText("¡Adóptame!")).toBeInTheDocument();
 });
 
 test("El botón muestra el texto requerido, en el idioma requerido (ESP) con '/'", () => {
@@ -90,7 +90,7 @@ test("El botón lleva a la página requerida '/adopt'", () => {
     </MemoryRouter>
   );
 
-  const button = screen.getByText("Adoptame!");
+  const button = screen.getByText("¡Adóptame!");
   fireEvent.click(button);
 
   expect(mockNavigate).toHaveBeenCalledWith("/adopt");
@@ -105,7 +105,7 @@ test("El botón lleva a la página requerida '/adopt-form'", () => {
     </MemoryRouter>
   );
 
-  const button = screen.getByText("Adoptame!");
+  const button = screen.getByText("¡Adóptame!");
   fireEvent.click(button);
 
   expect(mockNavigate).toHaveBeenCalledWith("/adopt-form");

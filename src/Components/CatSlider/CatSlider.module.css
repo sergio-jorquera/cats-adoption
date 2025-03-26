@@ -1,3 +1,7 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 * {
   box-sizing: border-box;
 }
@@ -12,7 +16,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .sliderContent {
@@ -23,7 +26,7 @@
   transition: opacity 800ms ease-in-out; /* Transición de opacidad */
   opacity: 1;
   width: 100%;
-  }
+}
 .sliderContent.hidden {
   opacity: 0; /* Se vuelve completamente visible */
 }
@@ -50,8 +53,7 @@
   right: 30px;
 }
 
-  
-  /* @media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .slider-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);

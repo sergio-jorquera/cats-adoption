@@ -1,17 +1,22 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 .Button {
-    background-color: rgb(0, 81, 255);
-    color:white;
-    height: 4vh;
-    width: 8vw;
-    transition: all 0.2s ease;
-};
+  background-color: rgb(0, 81, 255);
+  color: white;
+  height: 4vh;
+  width: 8vw;
+  transition: all 0.2s ease;
+  font-family: var(--primary-font);
+}
 
 .Button:hover {
-    background-color: rgb(245, 245, 154);
-    color: black;
-    cursor: pointer;
-};
+  background-color: rgb(245, 245, 154);
+  color: black;
+  cursor: pointer;
+}
 
-.Button:active{
-    transform: translateY(2px);
-};
+.Button:active {
+  transform: translateY(2px);
+}

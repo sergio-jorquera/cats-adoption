@@ -1,3 +1,7 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 .footer {
     background-color: #b2dfdb; /* Un verde azulado relajante */
     padding: 1rem;

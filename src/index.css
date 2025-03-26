@@ -1,4 +1,22 @@
 /* index.css */
+/* PERSONALIZED FONTS */
+@font-face {
+  font-family: 'Neulis Neue';
+  src: url('./assets/fonts/NeulisSans/Neulis_Neue_Regular.otf') format('opentype'),
+       url('./assets/fonts/NeulisSans/Neulis_Neue_Bold.otf') format('opentype'),
+       url('./assets/fonts/NeulisSans/Neulis_Neue_Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/NeulisSans/Neulis_Sans_Regular.otf') format('opentype'),
+       url('./assets/fonts/NeulisSans/Neulis_Sans_Bold.otf') format('opentype'),
+       url('./assets/fonts/NeulisSans/Neulis_Sans_Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

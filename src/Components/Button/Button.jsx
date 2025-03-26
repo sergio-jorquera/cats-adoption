@@ -21,7 +21,7 @@ export default function Button({ to, langEng }) {
       to === "adopt" || to === "adopt-form" ? "Adopt me!" : "Back to home";
   } else {
     textButton =
-      to === "adopt" || to === "adopt-form" ? "Adoptame!" : "Volver a inicio";
+      to === "adopt" || to === "adopt-form" ? "¡Adóptame!" : "Volver a inicio";
   }
 
   return (
