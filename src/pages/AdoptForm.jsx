@@ -42,8 +42,10 @@ function langSelection(langEng) {
           email: "Please enter a valid email",
           phone: "Enter a valid phone number",
           terms: "You must accept the terms and conditions",
+          
         },
-        documentTitle: "Adoption from"
+        documentTitle: "Adoption from",
+        successMessage: "Data sent successfully. We will contact you soon.",
       }
     : {
         mainTitle: "Gatitos Felices",
@@ -65,8 +67,11 @@ function langSelection(langEng) {
           email: "Por favor, introduce un correo válido",
           phone: "Introduce un número de teléfono válido",
           terms: "Debes aceptar los términos y condiciones",
+         
+        
         },
-        documentTitle: "Formulario de adopcíon"
+        documentTitle: "Formulario de adopcíon",
+        successMessage: "Datos enviados correctamente. Le contactaremos en breve.",
       };
 }
 
@@ -96,6 +101,7 @@ export default function AdoptPage() {
     e.preventDefault();
     let newErrors = {};
 
+
     if (
       !/^[a-zA-Z\s]+$/.test(formData.fullName) ||
       formData.fullName.trim().split(" ").length < 2
@@ -116,10 +122,11 @@ export default function AdoptPage() {
     if (!formData.terms) {
       newErrors.terms = text.errors.terms;
     }
+    console.log("Errores detectados:", newErrors);
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      alert("Datos enviados correctamente. Le contactaremos en breve.");
+      alert(text.successMessage); 
     }
   };
 
@@ -154,7 +161,7 @@ export default function AdoptPage() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  required
+                  
                 />
                 {errors.fullName && (
                   <p className="error-text">{errors.fullName}</p>
@@ -167,7 +174,7 @@ export default function AdoptPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
+                  
                 />
                 {errors.email && <p className="error-text">{errors.email}</p>}
               </div>
@@ -178,7 +185,7 @@ export default function AdoptPage() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  required
+                 
                 />
                 {errors.phone && <p className="error-text">{errors.phone}</p>}
               </div>
@@ -188,9 +195,11 @@ export default function AdoptPage() {
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
-                  required
-                />
+                  />
+                  {errors.city && <p className="error-text">{errors.city}</p>}
+                
               </div>
+    
               <div className="formdiv-field">
                 <input
                   type="checkbox"

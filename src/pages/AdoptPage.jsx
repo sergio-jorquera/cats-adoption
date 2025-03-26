@@ -19,13 +19,20 @@ function langSelection(langEng) {
 };
 
 export default function AdoptPage() {
+  const { langEng } = useContext(LanguageContext);
+  const text = langSelection(langEng);
+
+  useEffect(() => {
+    document.title = text.documentTitle;
+  }, [langEng]);
+
   return (
     <>
       <Header />
       <div id="mainAdopt">
         <div id="mainContent">
-        <p>Página web actualmente en construcción:</p>
-        <Button className="buttonAdoptPage" to=""></Button>
+          <p>{text.title}</p>
+          <Button className="buttonAdoptPage" to=""></Button>
         </div>
       </div>
       <Footer />
