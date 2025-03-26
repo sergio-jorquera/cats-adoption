@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FavoritesContext } from '../pages/FavoritesContext';
 import CatCard from '../Components/CatCard/CatCard.jsx';
+import { REMOVE_FAVORITE } from '../reducers/favoritesReducer';
 
 function FavoritesPage() {
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext);

@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import Button from '../Button/Button';
 import style from './CatCard.module.css';
 import { FavoritesContext } from '../../pages/FavoritesContext';
-import { ADD_FAVORITE, REMOVE_FAVORITE } from '../../reducers/favoritesReducer';
+import { ADD_FAVORITE } from '../../reducers/favoritesReducer'; // Elimina REMOVE_FAVORITE
 
 function CatCard({ cat }) {
   const [breedInfo, setBreedInfo] = useState(null);
   const [expanded, setExpanded] = useState(false);
-  const { favoritesState, favoritesDispatch } = useContext(FavoritesContext);
-  const isFavorite = favoritesState.favorites.some((fav) => fav.id === cat.id);
+  const { favoritesDispatch } = useContext(FavoritesContext);
 
   useEffect(() => {
     if (cat.breeds && cat.breeds.length > 0) {
@@ -23,11 +22,7 @@ function CatCard({ cat }) {
   };
 
   const handleFavorite = () => {
-    if (isFavorite) {
-      favoritesDispatch({ type: REMOVE_FAVORITE, payload: cat });
-    } else {
-      favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
-    }
+    favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
   };
 
   return (
@@ -53,9 +48,7 @@ function CatCard({ cat }) {
           </div>
         )}
       </div>
-      <button onClick={handleFavorite}>
-        {isFavorite ? 'Eliminar de favoritos' : 'AÑADIR a Favoritos'}
-      </button>
+      <button onClick={handleFavorite}>AÑADIR a Favoritos</button>
       <Button to="adopt" />
     </div>
   );

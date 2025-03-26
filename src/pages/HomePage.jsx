@@ -5,8 +5,8 @@ import CatList from '../Components/CatList/CatList';
 function HomePage() {
   return (
     <div>
-      <h1>Página de Inicio</h1>
-      <Link to="/favorites">Ir a Favoritos</Link>
+      
+      {/* <Link to="/favorites">Ir a Favoritos</Link> */} 
       <CatList />
     </div>
   );
