@@ -4,6 +4,7 @@ import styles from './Header.module.css';
 import { ThemeContext } from './../../context/ThemeContext';
 import { LanguageContext } from './../../context/LanguageContext'; // Importar el contexto del idioma
 function Header() {
+  
   const { theme, toggleTheme } = useContext(ThemeContext); // Accede a toggleTheme
   const { langEng, toggleLanguage  } = useContext(LanguageContext); // Accede a langEng y setLangEng
   

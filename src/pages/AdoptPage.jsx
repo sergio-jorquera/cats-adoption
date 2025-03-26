@@ -3,6 +3,7 @@ import Button from "../Components/Button/Button.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 import './styles/AdoptPage.css'
+import "./../App.css";
 
 export default function AdoptPage() {
   return (

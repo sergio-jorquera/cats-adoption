@@ -5,6 +5,7 @@ import Footer from "../Components/Footer/Footer.jsx";
 import { LanguageContext } from "../context/LanguageContext.jsx";
 import { useContext } from "react";
 import "./styles/AdoptForm.css";
+import "./../App.css";
 
 const initialState = {
   fullName: "",
@@ -194,7 +195,7 @@ export default function AdoptPage() {
                 <label>{text.terms}</label>
                 {errors.terms && <p className="error-text">{errors.terms}</p>}
               </div>
-              <button className= "submitButton" type="submit">{text.submit}</button>
+              <button className="submitButton" type="submit">{text.submit}</button>
             </form>
           </div>
         </div>

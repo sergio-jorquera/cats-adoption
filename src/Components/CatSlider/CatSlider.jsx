@@ -13,33 +13,62 @@ export default function Slider() {
   const [isVisible, setIsVisible] = useState(true);
   const itemsPerSlide = 5;
 
+  // Obtener los gatos solo UNA VEZ
   useEffect(() => {
     const fetchCats = async () => {
       const data = await CatService.getCats();
       setCats(data);
-
-      // Si está en inglés, traducir descripciones
-      if (langEng) {
-        const translatedData = await Promise.all(
-          data.map(async (cat) => ({
-            ...cat,
-            description: await translateText(cat.description, "en"),
-          }))
-        );
-        setTranslatedCats(translatedData);
-      } else {
-        setTranslatedCats(data);
-      }
+      setTranslatedCats(data); // Inicialmente sin traducir
     };
 
     fetchCats();
-  }, [langEng]); // Se actualiza cuando cambia el idioma
+  }, []); // Se ejecuta SOLO al montar el componente
+
+  // Traducir SOLO las cards en pantalla cuando cambia el idioma
+  useEffect(() => {
+    if (!langEng) {
+      setTranslatedCats(cats);
+      console.log("Idioma en español, mostrando original:", cats);
+      return;
+    }
+  
+    const translateVisibleCats = async () => {
+      const visibleCats = cats.slice(currentIndex, currentIndex + itemsPerSlide);
+      console.log("Gatos visibles antes de traducir:", visibleCats);
+  
+      try {
+        const translatedData = await Promise.all(
+          visibleCats.map(async (cat) => ({
+            ...cat,
+            description: cat.breeds?.[0]?.description
+              ? await translateText(cat.breeds[0].description, "en")
+              : "No description available",
+          }))
+        );
+  
+        console.log("Gatos traducidos:", translatedData);
+  
+        const updatedCats = [...cats];
+        translatedData.forEach((translatedCat, index) => {
+          updatedCats[currentIndex + index] = translatedCat;
+        });
+  
+        setTranslatedCats(updatedCats);
+        console.log("Estado actualizado con traducciones:", updatedCats);
+      } catch (error) {
+        console.error("Error al traducir:", error);
+      }
+    };
+  
+    translateVisibleCats();
+  }, [langEng, currentIndex]);
+  
 
   const nextSlide = () => {
     setIsVisible(false);
     setTimeout(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex + itemsPerSlide < translatedCats.length ? prevIndex + itemsPerSlide : 0
+        prevIndex + itemsPerSlide < cats.length ? prevIndex + itemsPerSlide : 0
       );
       setIsVisible(true);
     }, 800);
@@ -49,7 +78,7 @@ export default function Slider() {
     setIsVisible(false);
     setTimeout(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex - itemsPerSlide >= 0 ? prevIndex - itemsPerSlide : translatedCats.length - itemsPerSlide
+        prevIndex - itemsPerSlide >= 0 ? prevIndex - itemsPerSlide : cats.length - itemsPerSlide
       );
       setIsVisible(true);
     }, 800);

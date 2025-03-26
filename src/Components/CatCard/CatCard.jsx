@@ -2,32 +2,37 @@ import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import style from './CatCard.module.css';
 
-function CatCard({ cat, onAdopt }) {
-  const [breedInfo, setBreedInfo] = useState(null);
+function CatCard({ cat }) {
   const [expanded, setExpanded] = useState(false);
 
-  useEffect(() => {
-    if (cat.breeds && cat.breeds.length > 0) {
-      setBreedInfo(cat.breeds[0]);
-    } else {
-      setBreedInfo(null);
-    }
-  }, [cat.breeds]);
-
   const toggleExpand = () => {
-    setExpanded(!expanded);
+    setExpanded((prev) => !prev);
   };
 
   return (
     <div className={style.catCard}>
       <img className={style.catImage} src={cat.url} alt="Gatito" />
-      <Button to='adopt-form'/>
+      
+      {cat.breeds && cat.breeds.length > 0 && (
+        <div className={style.descriptionContainer}>
+          <h3 className={style.catBreed}>{cat.breeds[0].name}</h3>
+          <p className={`${style.catDescription} ${expanded ? style.expanded : ''}`}>
+            {cat.description || cat.breeds[0].description}
+          </p>
+          <button className={style.expandButton} onClick={toggleExpand}>
+            {expanded ? "Ver menos" : "Ver más"}
+          </button>
+        </div>
+      )}
+
+      <div className={style.adopt}>
+        <Button to='adopt-form' />
+      </div>
     </div>
   );
 }
 
 export default CatCard;
-
 
 
 // import React from 'react';
