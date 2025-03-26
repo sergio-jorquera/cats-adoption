@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
@@ -43,6 +43,7 @@ function langSelection(langEng) {
           phone: "Enter a valid phone number",
           terms: "You must accept the terms and conditions",
         },
+        documentTitle: "Adoption from"
       }
     : {
         mainTitle: "Gatitos Felices",
@@ -65,6 +66,7 @@ function langSelection(langEng) {
           phone: "Introduce un número de teléfono válido",
           terms: "Debes aceptar los términos y condiciones",
         },
+        documentTitle: "Formulario de adopcíon"
       };
 }
 
@@ -74,6 +76,10 @@ export default function AdoptPage() {
   const [errors, setErrors] = useState({});
   const text = langSelection(langEng); // ⬅️ Pasar el idioma al selector de texto
 
+  useEffect(() => {
+    document.title = text.documentTitle;
+  }, [langEng])
+  
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 

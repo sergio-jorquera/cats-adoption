@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { LanguageContext } from "./../../context/LanguageContext"; // Asegúrate de la ruta correcta
+import { LanguageContext } from "../../context/LanguageContext"; // Asegúrate de la ruta correcta
 import styles from "./Button.module.css";
 
 export default function Button({ to }) {
