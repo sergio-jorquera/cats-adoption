@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import Button from '../Button/Button';
 import style from './CatCard.module.css';
 import { FavoritesContext } from '../../pages/FavoritesContext';
-import { ADD_FAVORITE } from '../../reducers/favoritesReducer'; // Elimina REMOVE_FAVORITE
+import { ADD_FAVORITE } from '../../reducers/favoritesReducer';
 
 function CatCard({ cat }) {
   const [breedInfo, setBreedInfo] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [showButton, setShowButton] = useState(true); // Nuevo estado
   const { favoritesDispatch } = useContext(FavoritesContext);
 
   useEffect(() => {
@@ -23,6 +25,11 @@ function CatCard({ cat }) {
 
   const handleFavorite = () => {
     favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
+    setShowButton(false); // Oculta el botón inmediatamente
+    setShowMessage(true); // Muestra el mensaje
+    setTimeout(() => {
+      setShowMessage(false); // Oculta el mensaje después de 3 segundos
+    }, 3000);
   };
 
   return (
@@ -48,7 +55,10 @@ function CatCard({ cat }) {
           </div>
         )}
       </div>
-      <button onClick={handleFavorite}>AÑADIR a Favoritos</button>
+      {showButton && (
+        <button onClick={handleFavorite}>Añadir a Favoritos</button>
+      )}
+      {showMessage && <p>Añadido a Favoritos</p>}
       <Button to="adopt" />
     </div>
   );

@@ -24,7 +24,7 @@ function FavoritesPage() {
           </div>
         ))
       )}
-      <Link to="/">Volver a Inicio</Link>
+      {/* <Link to="/">Volver a Inicio</Link> */}
     </div>
   );
 }
