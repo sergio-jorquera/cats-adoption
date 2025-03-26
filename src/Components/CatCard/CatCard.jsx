@@ -9,7 +9,7 @@ function CatCard({ cat }) {
   const [expanded, setExpanded] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [showButton, setShowButton] = useState(true); // Nuevo estado
-  const { favoritesDispatch } = useContext(FavoritesContext);
+  const { favoritesState, favoritesDispatch } = useContext(FavoritesContext); // Accede a favoritesState
 
   useEffect(() => {
     if (cat.breeds && cat.breeds.length > 0) {
@@ -17,7 +17,11 @@ function CatCard({ cat }) {
     } else {
       setBreedInfo(null);
     }
-  }, [cat.breeds]);
+    // Verifica si la card ya está en favoritos
+    if (favoritesState.favorites.some((fav) => fav.id === cat.id)) {
+      setShowButton(false); // Oculta el botón si ya está en favoritos
+    }
+  }, [cat.breeds, favoritesState.favorites, cat.id]); // Agrega dependencias
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -58,7 +62,7 @@ function CatCard({ cat }) {
       {showButton && (
         <button onClick={handleFavorite}>Añadir a Favoritos</button>
       )}
-      {showMessage && <p>Añadido a Favoritos</p>}
+      {showMessage && <p><strong>Añadido a Favoritos</strong></p>}
       <Button to="adopt" />
     </div>
   );
