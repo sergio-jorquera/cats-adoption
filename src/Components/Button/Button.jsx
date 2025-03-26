@@ -18,13 +18,14 @@ export default function Button({ to }) {
     }
   };
 
-  if (langEng) {
-    textButton =
-      to === "adopt" || to === "adopt-form" ? "Adopt me!" : "Back to home";
-  } else {
-    textButton =
-      to === "adopt" || to === "adopt-form" ? "¡Adóptame!" : "Volver a inicio";
-  }
+  // Definir el texto según el idioma
+  textButton = langEng
+    ? to === "adopt" || to === "adopt-form"
+      ? "Adopt me!"
+      : "Back to home"
+    : to === "adopt" || to === "adopt-form"
+    ? "¡Adóptame!"
+    : "Volver a inicio";
 
   return (
     <button className={styles.Button} type="button" onClick={handleNavigation}>
