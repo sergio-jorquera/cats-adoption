@@ -1,21 +1,14 @@
 import React from 'react';
-import CatSlider from '../Components/CatSlider/CatSlider';
-import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
-import styles from "./styles/HomePage.module.css"
-
+import { Link } from 'react-router-dom';
+import CatList from '../Components/CatList/CatList';
 
 function HomePage() {
- 
   return (
-    <div className={styles.containerPage}>
-      <Header/>
-      <h1>Adopta un Gatito</h1>
-      <div className={styles.containerSlider}>
-      <CatSlider/>
-      </div>
-      <Footer/>
-  </div>
+    <div>
+      <h1>Página de Inicio</h1>
+      <Link to="/favorites">Ir a Favoritos</Link>
+      <CatList />
+    </div>
   );
 }
 

@@ -1,18 +1,17 @@
 import React from "react";
-import Routes from "./routes/AppRoutes"; // 👈 Renombrado para evitar conflicto
+import AppRoutes from "./routes/AppRoutes";
 import { ThemeProvider } from "./context/ThemeContext";
+import { FavoritesProvider } from "./pages/FavoritesContext";
 import "./App.css";
-
 
 function App() {
   return (
-    <languageProvider>
-    <ThemeProvider>
-      <Routes />
-    </ThemeProvider>
-    </languageProvider>
- 
-  )
+    <FavoritesProvider>
+      <ThemeProvider>
+        <AppRoutes />
+      </ThemeProvider>
+    </FavoritesProvider>
+  );
 }
 
 export default App;
