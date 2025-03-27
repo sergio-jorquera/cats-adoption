@@ -36,7 +36,7 @@ function Header() {
       </button>
       <nav className={`${styles.navMenu} ${menuOpen ? styles.navOpen : ""} ${theme === "dark" ? styles.dark : ""}`}>
         <Link to="/" className={styles.navItem} onClick={closeMenu}>
-          {langEng ? "Start" : "Inicio"}
+          {langEng ? "Home" : "Inicio"}
         </Link>
         <Link to="/adopt" className={styles.navItem} onClick={closeMenu}>
           {langEng ? "Adopt a Kitten" : "Adopta un gatito"}
