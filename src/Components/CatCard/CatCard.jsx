@@ -66,8 +66,9 @@ function CatCard({ cat }) {
       )}
       </div>
       {showMessage && <p><strong>Añadido a Favoritos</strong></p>}
-      
+      <div className={style.adopt}>
       <Button to="adopt-form" />
+      </div>
       
     </div>
   );

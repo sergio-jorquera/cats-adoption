@@ -48,6 +48,8 @@
   /* align-self: stretch;  */
 }
 .adopt {
+display: flex;
+justify-content: center;
   margin-top: 3vh;
   font-size: 9px;
   margin-bottom: 1.5vh;
