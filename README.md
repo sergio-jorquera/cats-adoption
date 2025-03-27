@@ -86,5 +86,3 @@ Cats Adoption ha sido desarrollado por [Sergio Jorquera](https://github.com/serg
 ## 📚 Licencia
 
 Cats Adoption es un software de código abierto licenciado bajo la Licencia MIT.
-
-plate](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
