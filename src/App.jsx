@@ -3,6 +3,7 @@ import Routes from "./routes/AppRoutes"; // 👈 Renombrado para evitar conflict
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

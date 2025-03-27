@@ -29,7 +29,7 @@
   }
   
   .navLink {
-    color: #555;
+    color: #555555;
     text-decoration: none;
     margin-left: 1.5rem;
     transition: color 0.3s ease;
@@ -39,14 +39,34 @@
     color: #e91e63; /* Un rosa vibrante para el hover */
   }
   .buttonHeader {
-    background-color: rgb(192, 194, 199);
-    color:rgb(59, 59, 59);
-    height: 3vh;
-    width: 6vw;
+    background-color: rgb(238, 236, 202);
+    color:rgb(102, 99, 99);
+    height: 4vh;
+    width: 7vw;
     transition: all 0.2s ease;
     font-size: 13px;
     font-family: var(--primary-font);
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
   }
+ /* Personalizar el menú desplegable */
+.dropdownMenu {
+  background-color: rgb(129, 140, 170); /* Fondo del menú */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+/* Personalizar cada opción del menú */
+.down {
+  color: rgb(81, 160, 235); /* Texto en blanco */
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para mejorar la experiencia */
+.down:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}

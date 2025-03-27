@@ -26,6 +26,7 @@
   object-fit: cover;
   background-color: transparent; /* Asegura que no haya un fondo azul */
   border-top: 8px solid white;
+  z-index: 10;
   
 }
 
@@ -39,6 +40,7 @@
 }
 .catBreed {
   font-family: var(--titles-font);
+  font-size: 2vh ;
 }
 /* 
 .breedInfo {
