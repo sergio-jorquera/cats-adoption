@@ -15,5 +15,8 @@
     height: 6.5vh;
     /* margin-top: 50px; */
   }
+  .listSty {
+    list-style: none;
+  }
 
  

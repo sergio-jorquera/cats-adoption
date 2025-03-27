@@ -1,9 +1,9 @@
-import React, {useEffect, useContext} from "react";
+import {useContext, useEffect} from "react";
 import Button from "../Components/Button/Button.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 import { LanguageContext } from "../context/LanguageContext.jsx";
-import "./styles/AdoptPage.css";
+import styles from './styles/AdoptPage.module.css';
 import "./../App.css";
 
 function langSelection(langEng) {
@@ -25,17 +25,17 @@ export default function AdoptPage() {
   useEffect(() => {
     document.title = text.documentTitle;
   }, [langEng]);
-
+  
   return (
     <>
       <Header />
-      <div id="mainAdopt">
-        <div id="mainContent">
-          <p>{text.title}</p>
-          <Button className="buttonAdoptPage" to=""></Button>
+      <div className={styles.mainAdopt}>
+        <div className={styles.mainContent}>
+        <p>{text.title}</p>
+        <Button to="" className={styles.buttonAP}></Button>
         </div>
       </div>
       <Footer />
-    </>
+      </>
   );
-}
+};

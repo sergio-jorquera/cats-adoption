@@ -1,0 +1,84 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mainAdopt {
+  flex-grow: 1;
+  height: calc(100vh - 14.5vh);
+  background-image: url("/images/adoptBackground.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--primary-font);
+  font-size: 2.2vh;
+}
+.mainContent {
+  padding-bottom: 30vh;
+  padding-right: 65vw;
+  color: black;
+}
+.buttonAP {
+ width: 8vw;
+ font-family: var(--primary-font);
+ font-size: 1.6vh;
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    padding-bottom: 20vh;
+    padding-right: 50vw;
+  }
+  .buttonAP {
+    width: 12vw;
+    font-size: 1.8vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainAdopt {
+    font-size: 2vh;
+  }
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(20%);
+    padding-right: 0;
+  }
+  .buttonAP {
+    width: 15vw;
+    font-size: 2vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainAdopt {
+    font-size: 1.8vh;
+    padding: 20px;
+    text-align: center;
+  }
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(20%);
+    padding-right: 0;
+  }
+  .buttonAP {
+    width: 50%;
+    font-size: 2vh;
+  }
+}
