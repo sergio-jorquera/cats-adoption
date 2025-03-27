@@ -5,7 +5,7 @@ import { FavoritesContext } from '../../pages/FavoritesContext';
 import { ADD_FAVORITE } from '../../reducers/favoritesReducer';
 import { LanguageContext } from '../../context/LanguageContext';
 
-function CatCard({ cat }) {
+function CatCard({ cat, className }) {
   const [breedInfo, setBreedInfo] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -52,7 +52,7 @@ function CatCard({ cat }) {
   };
 
   return (
-    <div className={style.catCard}>
+    <div className={`${style.catCard} ${className}`}>
       <img className={style.catImage} src={cat.url} alt="Gatito" />
       <div className={style.infoContainer}>
         {breedInfo ? (
