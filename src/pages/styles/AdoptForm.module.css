@@ -22,7 +22,7 @@
   height: 100%;
 }
 
-h1 {
+.primaryTitle {
   font-family: var(--titles-font);
 }
 
@@ -30,8 +30,13 @@ h1 {
   padding-left: 2vw;
   font-size: 2vh;
   font-family: var(--primary-font);
+  text-align: left;
+  margin-top: 6vh;
 }
-li {
+.description {
+  margin-top: 4vh;
+}
+.list {
   list-style-type: none;
 }
 .mainRight {
@@ -47,11 +52,11 @@ li {
   font-size: 2vh;
   font-family: var(--primary-font);
 }
-h2 {
+.secondaryTitle {
   margin-bottom: 4vh;
   font-family: var(--titles-font);
 }
-.formdiv-field {
+.formdiv {
   display: flex;
   align-items: center;
   gap: 1vw;
@@ -75,12 +80,13 @@ h2 {
 .submitButton:active {
   transform: translateY(2px);
 }
-.form-textarea {
+.formTextarea {
   width: 100%;
   height: 10vh;
 }
-
-
+.errorText {
+  color: red;
+}
 @media (max-width: 768px) {
   .mainAdopt {
     display: grid;
@@ -90,7 +96,8 @@ h2 {
     max-height: 100vh;
   }
 
-  .mainLeft, .mainRight {
+  .mainLeft,
+  .mainRight {
     width: 100%;
     height: auto;
   }
