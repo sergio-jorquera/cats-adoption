@@ -7,12 +7,12 @@
 }
 
 .sliderContainer {
- /* Para que las flechas se posicionen respecto a este contenedor */
+ 
   width: 100%;
   height: 100%;
   max-width: none;
   margin: 0 auto;
-  overflow: hidden; /* Asegura que no haya scroll innecesario */
+  overflow: hidden; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,27 +59,28 @@
 }
 
 
-  
-  /* @media (max-width: 768px) {
-    .slider-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-  
-    .arrow {
-      position: static; 
-      transform: none;
-      margin-top: 10px;
-    }
-  
-    .slider-content {
-      width: 100%;
-    }
+
+@media (max-width: 500px) {
+  .sliderContent {
+    justify-content: center;
   }
-  @media (max-width: 465px) {
-    .slider-container {
-      display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    }
-  
-  } */
+
+ .cardWidth {
+    width: 80vw;
+
+ }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sliderContent > * {
+    width: 30%; /* En tablet, las tarjetas ocupan el 30% del ancho (aproximadamente 3 columnas) */
+  }
+}
+
+/* Escritorio */
+@media (min-width: 1024px) {
+  .sliderContent > * {
+    width: 22%; /* En escritorios, las tarjetas ocupan el 22% del ancho (aproximadamente 4-5 columnas) */
+  }
+}

@@ -4,14 +4,14 @@ import CatService from "../../services/catService";
 import CatCard from "../CatCard/CatCard"; 
 import { LanguageContext } from "../../context/LanguageContext";
 import { translateText } from "../../services/translateService";
-
 export default function Slider() {
   const { langEng } = useContext(LanguageContext);
   const [cats, setCats] = useState([]); 
   const [translatedCats, setTranslatedCats] = useState([]); 
   const [currentIndex, setCurrentIndex] = useState(0); 
   const [isVisible, setIsVisible] = useState(true);
-  const itemsPerSlide = 5;
+  const [itemsPerSlide, setItemsPerSlide] = useState(5);
+ 
 
   // Obtener los gatos solo UNA VEZ
   useEffect(() => {
@@ -31,10 +31,14 @@ export default function Slider() {
       console.log("Idioma en español, mostrando original:", cats);
       return;
     }
-  
+
+
+   
+    
     const translateVisibleCats = async () => {
       const visibleCats = cats.slice(currentIndex, currentIndex + itemsPerSlide);
       console.log("Gatos visibles antes de traducir:", visibleCats);
+
   
       try {
         const translatedData = await Promise.all(
@@ -61,7 +65,28 @@ export default function Slider() {
     };
   
     translateVisibleCats();
-  }, [langEng, currentIndex]);
+  }, [langEng, currentIndex, cats, itemsPerSlide]);
+
+
+  useEffect(() => {
+    const updateItemsPerSlide = () => {
+      const width = window.innerWidth; 
+      if (width < 500) {
+        setItemsPerSlide(1); 
+      } else if (width >= 500 && width < 800) {
+        setItemsPerSlide(3); 
+      } 
+    };
+
+    updateItemsPerSlide(); // Llamamos a la función inmediatamente para ajustar los items
+    window.addEventListener("resize", updateItemsPerSlide); // Escuchar los cambios de tamaño
+
+    // Limpiar el event listener cuando el componente se desmonte
+    return () => {
+      window.removeEventListener("resize", updateItemsPerSlide);
+    };
+  }, []); // Se ejecuta solo una vez al inicio
+
   
 
   const nextSlide = () => {
@@ -94,7 +119,7 @@ export default function Slider() {
       
       <div className={`${style.sliderContent} ${!isVisible ? style.hidden : ''}`}>
         {translatedCats.slice(currentIndex, currentIndex + itemsPerSlide).map((cat, index) => (
-          <CatCard key={index} cat={cat} />
+          <CatCard className={style.cardWidth} key={index} cat={cat} />
         ))}
       </div>
       

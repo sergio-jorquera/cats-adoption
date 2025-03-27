@@ -5,6 +5,7 @@ import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import styles from "./styles/HomePage.module.css"
 
+
 function HomePage() {
   const { langEng } = useContext(LanguageContext); // Accede al contexto de idioma
 
