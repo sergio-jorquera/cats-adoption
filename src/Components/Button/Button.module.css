@@ -16,7 +16,7 @@
   font-family: var(--primary-font);
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 6vw; /* Asegura que el botón ocupe todo el ancho */
+  width: 6vw;
   min-width: 5vw;
   box-sizing: border-box;
 }

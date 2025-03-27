@@ -4,6 +4,7 @@ import CatService from "../../services/catService";
 import CatCard from "../CatCard/CatCard"; 
 import { LanguageContext } from "../../context/LanguageContext";
 import { translateText } from "../../services/translateService";
+
 export default function Slider() {
   const { langEng } = useContext(LanguageContext);
   const [cats, setCats] = useState([]); 
@@ -32,14 +33,10 @@ export default function Slider() {
       return;
     }
 
-
-   
-    
     const translateVisibleCats = async () => {
       const visibleCats = cats.slice(currentIndex, currentIndex + itemsPerSlide);
       console.log("Gatos visibles antes de traducir:", visibleCats);
 
-  
       try {
         const translatedData = await Promise.all(
           visibleCats.map(async (cat) => ({
@@ -110,7 +107,7 @@ export default function Slider() {
   };
 
   if (translatedCats.length === 0) {
-    return <div>Cargando gatos...</div>;
+    return <div>{langEng ? "Loading kittens..." : "Cargando gatitos..."}</div>;
   }
 
   return (

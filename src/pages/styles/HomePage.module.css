@@ -1,21 +1,32 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
+
 .containerPage {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-  }
-  h1 {
-    
-    text-align: center;
-  }
-  
-  .containerSlider {
-    flex-grow: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  .title {
-    display: grid;
-    margin-top: 5vh;;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title {
+  text-align: center;
+  font-family: var(--titles-font);
+}
+
+.description {
+  font-family: var(--primary-font);
+  size: 10vh;
+}
+
+.containerSlider {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.divText {
+  display: grid;
+  margin-top: 5vh;
+}

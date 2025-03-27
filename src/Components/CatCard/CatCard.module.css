@@ -36,17 +36,12 @@
   display: flex;
   flex-direction: column;
   color: black;
-  
 }
 /* .catBreed {
   font-family: var(--titles-font);
   font-size: 2vh ;
 } */
 
-.catCard button {
-  /* margin-top: auto;  */
-  /* align-self: stretch;  */
-}
 .adopt {
 display: flex;
 justify-content: center;
@@ -64,14 +59,15 @@ justify-content: center;
   color: black;
 } */
 
-p {
+.p {
   font-family: var(--primary-font);
   margin-top: 1px;
   max-height: 60px; /* Altura inicial limitada */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Muestra solo 3 líneas */
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Muestra solo 3 líneas */
   -webkit-box-orient: vertical;
   transition: max-height 0.3s ease-in-out;
   margin-bottom: 3px;
@@ -82,6 +78,7 @@ p {
 .expanded {
   max-height: 500px; /* Se expande completamente */
   -webkit-line-clamp: unset; /* Muestra todo el contenido */
+  line-clamp: 3;
 }
 
 .expandButton {
@@ -105,9 +102,6 @@ p {
   }
 
   .catCard {
-   
     width: 70vw;
-    
-   
   }
 }
