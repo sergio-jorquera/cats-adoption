@@ -95,11 +95,13 @@
     overflow-y: auto;
     max-height: 100vh;
   }
-
   .mainLeft,
   .mainRight {
     width: 100%;
     height: auto;
+  }
+  .mainContentLeft{
+    margin-top: 2vh;
   }
   .mainContentRight {
     padding-top: 0;
