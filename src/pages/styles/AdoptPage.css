@@ -1,7 +1,3 @@
-:root {
-  --titles-font: "Neulis Neue";
-  --primary-font: "Neulis Sans";
-}
 html,
 body {
   margin: 0;
@@ -13,9 +9,9 @@ body {
 
 #mainAdopt {
   flex-grow: 1;
- height: calc(100vh - 14.5vh);
+  height: calc(100vh - 14.5vh);
   /* width: 100vh; */
-  background-image: url("/adoptBackground.avif");
+  background-image: url("../../../public/images/adoptBackground.avif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

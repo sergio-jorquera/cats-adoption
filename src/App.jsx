@@ -10,11 +10,11 @@ import "./App.css";
 function App() {
   return (
     <FavoritesProvider>
+      <LanguageProvider>
       <ThemeProvider>
-        <Header /> {/* Renderiza el Header */}
-        <AppRoutes />
-        <Footer /> {/* Renderiza el Footer */}
-      </ThemeProvider>
+         <AppRoutes />
+       </ThemeProvider>
+      </LanguageProvider>
     </FavoritesProvider>
   );
 }

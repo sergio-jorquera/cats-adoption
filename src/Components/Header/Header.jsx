@@ -1,4 +1,4 @@
-import React, { useContext }, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import { ThemeContext } from './../../context/ThemeContext';

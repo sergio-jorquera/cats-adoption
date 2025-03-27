@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from '../Button/Button';
 import style from './CatCard.module.css';
 import { FavoritesContext } from '../../pages/FavoritesContext';
 import { ADD_FAVORITE } from '../../reducers/favoritesReducer';
-import { useContext } from 'react'; // Asegúrate de importar correctamente el hook del contexto
 import { LanguageContext } from '../../context/LanguageContext';
 
 function CatCard({ cat }) {
@@ -65,7 +64,7 @@ function CatCard({ cat }) {
         <button onClick={handleFavorite}>Añadir a Favoritos</button>
       )}
       {showMessage && <p><strong>Añadido a Favoritos</strong></p>}
-      <Button to="adopt" />
+      <Button to="adopt-form" />
     </div>
   );
 }
