@@ -78,6 +78,7 @@ En el directorio del proyecto, puedes ejecutar:
 - `npm run dev` ▶️ Inicia la aplicación en modo desarrollo.
 - `npm run build` 🏗️ Construye la aplicación para producción en la carpeta `dist`.
 - `npm run preview` 👀 Previsualiza la aplicación construida para producción.
+- `npm test` 🧪 Ejecuta los tests automatizados.
 
 ## 👨‍💻 Créditos
 
