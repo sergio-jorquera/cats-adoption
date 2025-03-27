@@ -1,59 +1,76 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import styles from './Header.module.css';
-import { ThemeContext } from './../../context/ThemeContext';
-import { LanguageContext } from './../../context/LanguageContext';
-
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
+import styles from "./Header.module.css";
+import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { langEng, toggleLanguage } = useContext(LanguageContext);
-  
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+ 
+
   const textHeader = langEng ? "Happy Kittens" : "Gatitos Felices";
-  const textAdopt = langEng ? "Adopt a Kitten" : "Adopta un gatito";
-  const textStart = langEng ? "Start" : "Inicio";
   const textAlt = langEng ? "Adopt a Kitten logo" : "Logo de Adopta un gatito";
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link to="/">
-          <img src='../../../images/logo.webp' alt={textAlt} className={styles.imgLogo}/> 
+        <Link to="/" onClick={closeMenu}>
+          <img
+            src="/images/logo.webp"
+            alt={textAlt}
+            className={styles.imgLogo}
+          />
           {textHeader} 🐾
         </Link>
       </div>
-
-      <nav className={styles.nav}>
-        {/* Dropdown con opciones */}
-        <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-          <DropdownToggle tag="button" className={styles.buttonHeader} caret>
-             {langEng ? "Settings" : "Configuración"}
-          </DropdownToggle>
-          <DropdownMenu className={styles.dropDownMenu}>
-            <DropdownItem className={styles.down} onClick={toggleTheme}>
-              {langEng 
-                ? (theme === 'light' ? 'Dark theme' : 'Light theme') 
-                : (theme === 'light' ? 'Tema oscuro' : 'Tema claro')}
-            </DropdownItem>
-            <DropdownItem  className={styles.down} onClick={toggleLanguage}>
-              {langEng ? 'Español' : 'English'}
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-
-        <Link to="/" className={styles.navLink}>{textStart}</Link>
-        <Link to="/adopt" className={styles.navLink}>{textAdopt}</Link>
-        <Link to="/favorites" className={styles.navLink}>
-          Ir a Favoritos
+      <button className={styles.menuButton} onClick={toggleMenu}>
+        {menuOpen ? <FiX /> : <FiMenu />}
+      </button>
+      <nav className={`${styles.navMenu} ${menuOpen ? styles.navOpen : ""} ${theme === "dark" ? styles.dark : ""}`}>
+        <Link to="/" className={styles.navItem} onClick={closeMenu}>
+          {langEng ? "Start" : "Inicio"}
         </Link>
+        <Link to="/adopt" className={styles.navItem} onClick={closeMenu}>
+          {langEng ? "Adopt a Kitten" : "Adopta un gatito"}
+        </Link>
+        <Link to="/favorites" className={styles.navItem} onClick={closeMenu}>
+          {langEng ? "Favorites" : "Favoritos"}
+        </Link>
+        <button
+          className={styles.navItem}
+          onClick={() => {
+            toggleTheme();
+            closeMenu();
+          }}
+        >
+          {langEng
+            ? theme === "light"
+              ? "Dark theme"
+              : "Light theme"
+            : theme === "light"
+            ? "Tema oscuro"
+            : "Tema claro"}
+        </button>
+        <button
+          className={styles.navItem}
+          onClick={() => {
+            toggleLanguage();
+            closeMenu();
+          }}
+        >
+          {langEng ? "Español" : "English"}
+        </button>
       </nav>
     </header>
   );
 }
 
 export default Header;
-

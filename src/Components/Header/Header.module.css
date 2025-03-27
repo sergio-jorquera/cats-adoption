@@ -2,71 +2,107 @@
   --titles-font: "Neulis Neue";
   --primary-font: "Neulis Sans";
 }
+
 .header {
-    background-color: #fceabb; /* Un amarillo suave y cálido */
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 8vh;
-  }
-  .imgLogo{
-    height: 6vh !important;
-    width: auto !important;
-  }
-  .logo a {
-    font-size: 1.5rem;
-    font-family: var(--primary-font);
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .nav {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .navLink {
-    color: #555555;
-    text-decoration: none;
-    margin-left: 1.5rem;
-    transition: color 0.3s ease;
-  }
-  
-  .navLink:hover {
-    color: #e91e63; /* Un rosa vibrante para el hover */
-  }
-  .buttonHeader {
-    background-color: rgb(238, 236, 202);
-    color:rgb(102, 99, 99);
-    height: 4vh;
-    width: 7vw;
-    transition: all 0.2s ease;
-    font-size: 13px;
-    font-family: var(--primary-font);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-  }
- /* Personalizar el menú desplegable */
-.dropdownMenu {
-  background-color: rgb(129, 140, 170); /* Fondo del menú */
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 5px;
+  background-color: #fceabb;
+  padding: 2vh 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0.3vh 0.5vh rgba(0, 0, 0, 0.1);
+  height: 8vh;
+  width: 100%;
 }
 
-/* Personalizar cada opción del menú */
-.down {
-  color: rgb(81, 160, 235); /* Texto en blanco */
-  padding: 10px;
-  transition: background-color 0.3s ease;
+.imgLogo {
+  height: 6vh;
+  width: auto;
 }
 
-/* Efecto hover para mejorar la experiencia */
-.down:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+.logo a {
+  font-size: 1.8rem;
+  font-family: var(--primary-font);
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  font-size: 3vh;
+  cursor: pointer;
+  color: #333;
+}
+
+.navMenu {
+  position: fixed; 
+  top: 8.2vh;
+  right: -20%; 
+  background: white;
+  box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.1);
+  border-radius: 2vh;
+  padding: 2vh;
+  width: 15vw;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  z-index: 1000;
+}
+
+.navOpen {
+  right: 0.5vw;
+}
+
+.navItem {
+  color: #555;
+  text-decoration: none;
+  padding: 2vh;
+  font-size: 2vh;
+  font-family: var(--primary-font);
+  display: block;
+  border-bottom: 0.2vh solid #ddd;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  background-color: rgb(51, 45, 45);
+  color: white;
+}
+
+.dark .navItem {
+  color: white;
+  background-color: rgb(51, 45, 45);
+}
+
+.dark .navItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .menuButton {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+
+  .navMenu {
+    display: none; 
+    width: 100vw;
+  }
+
+  .navOpen {
+    display: flex;
+  }
 }
