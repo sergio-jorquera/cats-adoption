@@ -5,7 +5,7 @@ import CatCard from '../Components/CatCard/CatCard.jsx';
 import { REMOVE_FAVORITE } from '../reducers/favoritesReducer';
 import Header from "./../Components/Header/Header.jsx";
 import Footer from "./../Components/Footer/Footer.jsx"
-
+import style from "./styles/FavoritesPage.module.css"
 function FavoritesPage() {
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext);
 
@@ -15,23 +15,35 @@ function FavoritesPage() {
 
   return (
     <div>
-      <Header/>
-      <h1>Favoritos</h1>
+      <Header />
+      <div className={style.body}>
+      <div className={style.textH1}>
+        <h1>Favoritos</h1>
+      </div>
       {favoritesState.favorites.length === 0 ? (
         <p>No tienes favoritos.</p>
       ) : (
-        favoritesState.favorites.map((cat) => (
-          <div key={cat.id}>
-            <CatCard cat={cat} />
-            <button onClick={() => handleRemove(cat)}>ELIMINAR</button>
-          </div>
-        ))
+        <div className={style.cardContainer}>
+          {favoritesState.favorites.map((cat) => (
+            <div key={cat.id} className={style.cardItem}>
+              {/* Tarjeta */}
+              <CatCard cat={cat} />
+  
+              {/* Botón de eliminar */}
+              <div className={style.buttonContainer}>
+                <button onClick={() => handleRemove(cat)}>ELIMINAR</button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
-      {/* <Link to="/">Volver a Inicio</Link> */}
-    <Footer/>
+      </div>
+      <Footer />
     </div>
-
   );
+  
+  
+  
 }
 
 export default FavoritesPage;

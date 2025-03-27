@@ -50,7 +50,7 @@ function CatCard({ cat }) {
                 : `${breedInfo.description.substring(0, 100)}...`}
             </p>
             {!expanded && breedInfo.description.length > 100 && (
-              <button onClick={toggleExpand}>Leer más</button>
+              <button className={style.expandButton} onClick={toggleExpand}>Leer más</button>
             )}
           </div>
         ) : (
@@ -60,11 +60,15 @@ function CatCard({ cat }) {
           </div>
         )}
       </div>
+      <div className={style.controllerFavouriteButton}>
       {showButton && (
-        <button onClick={handleFavorite}>Añadir a Favoritos</button>
+        <button className={style.favouriteButton} onClick={handleFavorite}>Añadir a Favoritos</button>
       )}
+      </div>
       {showMessage && <p><strong>Añadido a Favoritos</strong></p>}
+      
       <Button to="adopt-form" />
+      
     </div>
   );
 }
