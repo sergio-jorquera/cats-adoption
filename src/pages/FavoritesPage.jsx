@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FavoritesContext } from '../pages/FavoritesContext';
 import CatCard from '../Components/CatCard/CatCard.jsx';
 import { REMOVE_FAVORITE } from '../reducers/favoritesReducer';
+import Header from "./../Components/Header/Header.jsx";
+import Footer from "./../Components/Footer/Footer.jsx"
 
 function FavoritesPage() {
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext);
@@ -13,6 +15,7 @@ function FavoritesPage() {
 
   return (
     <div>
+      <Header/>
       <h1>Favoritos</h1>
       {favoritesState.favorites.length === 0 ? (
         <p>No tienes favoritos.</p>
@@ -25,7 +28,9 @@ function FavoritesPage() {
         ))
       )}
       {/* <Link to="/">Volver a Inicio</Link> */}
+    <Footer/>
     </div>
+
   );
 }
 

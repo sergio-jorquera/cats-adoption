@@ -47,6 +47,9 @@ function Header() {
 
         <Link to="/" className={styles.navLink}>{textStart}</Link>
         <Link to="/adopt" className={styles.navLink}>{textAdopt}</Link>
+        <Link to="/favorites" className={styles.navLink}>
+          Ir a Favoritos
+        </Link>
       </nav>
     </header>
   );
