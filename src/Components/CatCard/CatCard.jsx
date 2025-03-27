@@ -12,6 +12,18 @@ function CatCard({ cat }) {
   const [showButton, setShowButton] = useState(true); // Nuevo estado
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext); // Accede a favoritesState
 
+  const { langEng } =  useContext(LanguageContext); // Accede al valor langEng desde el contexto
+  const textButton =langEng 
+  ? (expanded ? 'See less' : 'See more') 
+  : (expanded ? 'Ver menos' : 'Ver más');
+    // Función para acortar el texto
+    function textShorter(text) {
+      let finalText = text.split('.');
+      return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
+    }
+  
+  
+  
   useEffect(() => {
     if (cat.breeds && cat.breeds.length > 0) {
       setBreedInfo(cat.breeds[0]);
@@ -24,9 +36,11 @@ function CatCard({ cat }) {
     }
   }, [cat.breeds, favoritesState.favorites, cat.id]); // Agrega dependencias
 
-  const toggleExpand = () => {
-    setExpanded(!expanded);
+  // Alternar el estado de expandir/contraer la descripción
+  const handleToggleExpand = () => {
+    setExpanded((prev) => !prev);
   };
+
 
   const handleFavorite = () => {
     favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
@@ -48,9 +62,13 @@ function CatCard({ cat }) {
               {expanded
                 ? breedInfo.description
                 : `${breedInfo.description.substring(0, 100)}...`}
+             
+            {textShorter((cat.description || cat.breeds[0].description))}  
             </p>
             {!expanded && breedInfo.description.length > 100 && (
-              <button className={style.expandButton} onClick={toggleExpand}>Leer más</button>
+              <button className={style.expandButton} onClick={handleToggleExpand}>
+              {textButton}
+            </button>
             )}
           </div>
         ) : (
