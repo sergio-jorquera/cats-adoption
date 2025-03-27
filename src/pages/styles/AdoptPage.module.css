@@ -1,3 +1,7 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
 html,
 body {
   margin: 0;
@@ -6,27 +10,26 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-#mainAdopt {
+.mainAdopt {
   flex-grow: 1;
   height: calc(100vh - 14.5vh);
-  /* width: 100vh; */
-  background-image: url("../../../public/images/adoptBackground.avif");
+  background-image: url("/images/adoptBackground.avif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--primary-font);
+  font-size: 2.2vh;
 }
-
-.buttonAdoptPage {
- width: 4vw;
-}
-
-
-#mainContent {
+.mainContent {
   padding-bottom: 30vh;
   padding-right: 65vw;
   color: black;
+}
+.buttonAP {
+ width: 8vw;
+ font-family: var(--primary-font);
+ font-size: 1.6vh;
 }
