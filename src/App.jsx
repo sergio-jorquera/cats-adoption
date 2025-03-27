@@ -6,6 +6,7 @@ import Header from "./Components/Header/Header"; // Importa el Header
 import Footer from "./Components/Footer/Footer"; // Importa el Footer
 import { LanguageProvider } from "./context/LanguageContext";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

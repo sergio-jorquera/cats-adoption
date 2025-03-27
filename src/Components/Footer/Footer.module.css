@@ -3,8 +3,10 @@
   --primary-font: "Neulis Sans";
 }
 .footer {
+  
+    display: grid;
     background-color: #b2dfdb; /* Un verde azulado relajante */
-    
+    align-items: center;
     text-align: center;
     color: #444;
     font-size: 1.2vh;
@@ -13,6 +15,5 @@
     height: 6.5vh;
     /* margin-top: 50px; */
   }
-  p {
-    size: 1vh;
-  }
+
+ 
