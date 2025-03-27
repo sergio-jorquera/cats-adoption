@@ -1,67 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from '../Button/Button';
 import style from './CatCard.module.css';
+import { FavoritesContext } from '../../pages/FavoritesContext';
+import { ADD_FAVORITE } from '../../reducers/favoritesReducer';
 import { useContext } from 'react'; // Asegúrate de importar correctamente el hook del contexto
 import { LanguageContext } from '../../context/LanguageContext';
 
 function CatCard({ cat }) {
-  const { langEng } =  useContext(LanguageContext); // Accede al valor langEng desde el contexto
- 
- 
+  const [breedInfo, setBreedInfo] = useState(null);
   const [expanded, setExpanded] = useState(false);
-  const textButton =langEng 
-  ? (expanded ? 'See less' : 'See more') 
-  : (expanded ? 'Ver menos' : 'Ver más');
+  const [showMessage, setShowMessage] = useState(false);
+  const [showButton, setShowButton] = useState(true); // Nuevo estado
+  const { favoritesState, favoritesDispatch } = useContext(FavoritesContext); // Accede a favoritesState
 
-  // Función para acortar el texto
-  function textShorter(text) {
-    let finalText = text.split('.');
-    return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
-  }
+  useEffect(() => {
+    if (cat.breeds && cat.breeds.length > 0) {
+      setBreedInfo(cat.breeds[0]);
+    } else {
+      setBreedInfo(null);
+    }
+    // Verifica si la card ya está en favoritos
+    if (favoritesState.favorites.some((fav) => fav.id === cat.id)) {
+      setShowButton(false); // Oculta el botón si ya está en favoritos
+    }
+  }, [cat.breeds, favoritesState.favorites, cat.id]); // Agrega dependencias
 
-  // Alternar el estado de expandir/contraer la descripción
-  const handleToggleExpand = () => {
-    setExpanded((prev) => !prev);
+  const toggleExpand = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleFavorite = () => {
+    favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
+    setShowButton(false); // Oculta el botón inmediatamente
+    setShowMessage(true); // Muestra el mensaje
+    setTimeout(() => {
+      setShowMessage(false); // Oculta el mensaje después de 3 segundos
+    }, 3000);
   };
 
   return (
     <div className={style.catCard}>
       <img className={style.catImage} src={cat.url} alt="Gatito" />
-      
-      {cat.breeds && cat.breeds.length > 0 && (
-        <div className={style.descriptionContainer}>
-          <h3 className={style.catBreed}>{cat.breeds[0].name}</h3>
-          <p className={`${style.catDescription} ${expanded ? style.expanded : ''}`}>
-            {textShorter((cat.description || cat.breeds[0].description))}
-          </p>
-          <button className={style.expandButton} onClick={handleToggleExpand}>
-            {textButton}
-          </button>
-        </div>
-      )}
-
-      <div className={style.adopt}>
-        <Button to="adopt-form" />
+      <div className={style.infoContainer}>
+        {breedInfo ? (
+          <div className={`${style.breedInfo} ${expanded ? style.expanded : ''}`}>
+            <h3>{breedInfo.name}</h3>
+            <p>
+              {expanded
+                ? breedInfo.description
+                : `${breedInfo.description.substring(0, 100)}...`}
+            </p>
+            {!expanded && breedInfo.description.length > 100 && (
+              <button onClick={toggleExpand}>Leer más</button>
+            )}
+          </div>
+        ) : (
+          <div className={style.breedInfo}>
+            <h3>Raza desconocida</h3>
+            <p>No hay información de raza disponible para este gatito.</p>
+          </div>
+        )}
       </div>
+      {showButton && (
+        <button onClick={handleFavorite}>Añadir a Favoritos</button>
+      )}
+      {showMessage && <p><strong>Añadido a Favoritos</strong></p>}
+      <Button to="adopt" />
     </div>
   );
 }
 
 export default CatCard;
-
-
-
-// import React from 'react';
-// import Button from '../Button/Button';
-// import style from './CatCard.module.css';
-
-// function CatCard({ cat, onAdopt }) {
-//   return (
-//     <div className={style.catCard}>
-//       <img className={style.catImage} src={cat.url} alt="Gatito" />
-//       <Button to='adopt'/>
-//     </div>
-//   );
-// }
-
-// export default CatCard;
