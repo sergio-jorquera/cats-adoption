@@ -29,7 +29,6 @@ export default function Slider() {
   useEffect(() => {
     if (!langEng) {
       setTranslatedCats(cats);
-      console.log("Idioma en español, mostrando original:", cats);
       return;
     }
 

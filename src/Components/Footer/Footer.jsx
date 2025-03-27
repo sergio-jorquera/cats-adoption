@@ -11,7 +11,7 @@ function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <ul>
+      <ul className={styles.ul}>
       <li className={styles.listSty}>{footerTextOne}</li>
       <li className={styles.listSty}>{footerTextTwo}</li>
       </ul>

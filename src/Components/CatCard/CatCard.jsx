@@ -23,7 +23,7 @@ function CatCard({ cat, className }) {
 
     function limitText(text, maxLength) {
       return text.substring(0, maxLength) + (text.length > maxLength ? "..." : "");
-    }git 
+    }
 
   useEffect(() => {
     if (cat.breeds && cat.breeds.length > 0) {
