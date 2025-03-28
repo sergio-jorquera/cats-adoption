@@ -9,7 +9,6 @@ import { translateHomePage } from '../translates/translates';
 
 function HomePage() {
   const { langEng } = useContext(LanguageContext); // Accede al contexto de idioma
-
   const text = translateHomePage(langEng);
 
     useEffect(() => {
