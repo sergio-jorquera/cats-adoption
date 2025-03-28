@@ -72,12 +72,12 @@ export function translateFavoritesPage(eng) {
 export function translateHomePage(eng) {
   return eng
     ? {
-        documentTitle: "Home",
+        documentTitle: "Adopt a kitten",
         pagetitle: "Adopt a Kitten",
         description: "Find your new best friend among our adorable kittens!",
       }
     : {
-        documentTitle: "Inicio",
+        documentTitle: "Adopta un Gatito",
         pagetitle: "Adopta un Gatito",
         description:
           "¡Encuentra a tu nuevo mejor amigo entre nuestros adorables gatitos!",
