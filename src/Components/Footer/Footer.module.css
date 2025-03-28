@@ -18,6 +18,9 @@
   .listSty {
     list-style: none;
   }
+  .ul {
+    margin-top: 2vh;
+  }
 
   @media (min-width: 501px) and (max-width: 768px) {
     

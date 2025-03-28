@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
-import Button from '../Button/Button';
-import style from './CatCard.module.css';
-import { FavoritesContext } from '../../pages/FavoritesContext';
-import { ADD_FAVORITE } from '../../reducers/favoritesReducer';
-import { LanguageContext } from '../../context/LanguageContext';
+import React, { useState, useContext, useEffect } from "react";
+import Button from "../Button/Button";
+import style from "./CatCard.module.css";
+import { FavoritesContext } from "../../pages/FavoritesContext";
+import { ADD_FAVORITE } from "../../reducers/favoritesReducer";
+import { LanguageContext } from "../../context/LanguageContext";
 
 function CatCard({ cat, className }) {
   const [breedInfo, setBreedInfo] = useState(null);
@@ -44,7 +44,6 @@ function CatCard({ cat, className }) {
     setExpanded((prev) => !prev);
   };
 
-
   const handleFavorite = () => {
     favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
     setShowButton(false); // Oculta el botón inmediatamente
@@ -55,7 +54,7 @@ function CatCard({ cat, className }) {
   };
 
   return (
-    <div className={`${style.catCard} ${className}`}>
+    <div className={style.catCard}>
       <img className={style.catImage} src={cat.url} alt="Gatito" />
       <div className={style.infoContainer}>
         {breedInfo ? (
@@ -73,10 +72,22 @@ function CatCard({ cat, className }) {
        )}
      </div>
      
+          <div
+            className={`${style.breedInfo} ${expanded ? style.expanded : ""}`}
+          >
+            <h3>{breedInfo.name}</h3>
+            <p>
+            {limitText(breedInfo.description, 100)}
+            </p>
+          </div>
         ) : (
           <div className={style.breedInfo}>
-            <h3>Raza desconocida</h3>
-            <p>No hay información de raza disponible para este gatito.</p>
+            <h3>{langEng ? "Unknown race" : "Raza desconocida"}</h3>
+            <p className={style.texts}>
+              {langEng
+                ? "There is no breed information available for this kitten"
+                : "No hay información de raza disponible para este gatito"}
+            </p>
           </div>
         )}
       </div>
@@ -87,9 +98,8 @@ function CatCard({ cat, className }) {
       </div>
       {showMessage && <p><strong>{addedFavorites}</strong></p>}
       <div className={style.adopt}>
-      <Button to="adopt-form" />
+        <Button to="adopt-form" />
       </div>
-      
     </div>
   );
 }

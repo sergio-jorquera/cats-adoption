@@ -1,24 +1,21 @@
-
-
-.body{
-
-    display: grid;
-    height: 85.5vh;
+.body {
+  display: grid;
+  height: 85.5vh;
 }
-  
-  .cardContainer {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 1vh;
-    gap: 1.5vw;
-  }
-  
-  .buttonContainer {
-    margin-top: 3vh; /* Separa el botón de la tarjeta */
-  }
-   .textH1 {
-    margin-top: 5vh;
-    height: 1vh;
-   }
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 1vh;
+  gap: 1.5vw;
+}
+
+.buttonContainer {
+  margin-top: 3vh; /* Separa el botón de la tarjeta */
+}
+.textH1 {
+  margin-top: 5vh;
+  height: 1vh;
+}
