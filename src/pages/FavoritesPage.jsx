@@ -24,14 +24,12 @@ function langSelection(langEng) {
 
 function FavoritesPage() {
 
-  const { langEng, toggleLanguage } = useContext(LanguageContext);
-  const text1= langEng ? "Favorites" : "Favoritos";
-  const paragraph= langEng ? "You don't have favorites" : "No tienes favoritos";
-  const buttonDelete= langEng ? "DELETE" : "ELIMINAR";
+  const { langEng } = useContext(LanguageContext);
+  
 
 
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext);
-  const { langEng } = useContext(LanguageContext);
+  
   const text = langSelection(langEng);
 
   useEffect(() => {

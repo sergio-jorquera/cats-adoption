@@ -5,27 +5,20 @@ import { FavoritesContext } from "../../pages/FavoritesContext";
 import { ADD_FAVORITE } from "../../reducers/favoritesReducer";
 import { LanguageContext } from "../../context/LanguageContext";
 
-function CatCard({ cat, className }) {
+function CatCard({ cat }) {
   const [breedInfo, setBreedInfo] = useState(null);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [showButton, setShowButton] = useState(true); // Nuevo estado
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext); // Accede a favoritesState
 
   const { langEng } =  useContext(LanguageContext); // Accede al valor langEng desde el contexto
-  const textButton =langEng 
-  ? (expanded ? 'See less' : 'See more') 
-  : (expanded ? 'Ver menos' : 'Ver más');
-  const addFavorites= langEng ? 'Add to favorites' : 'Añadir a favoritos';
-  const addedFavorites= langEng ? 'Added to favorites' : 'Añadido a favoritos';
-    // Función para acortar el texto
-    
-    // function textShorter(text) {
-    //   let finalText = text.split('.');
-    //   return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
-    // }
+ 
+
   
-  
+    function limitText(text, maxLength) {
+          return text.substring(0, maxLength) + (text.length > maxLength ? "..." : "");
+        }
   
   useEffect(() => {
     if (cat.breeds && cat.breeds.length > 0) {
@@ -39,10 +32,8 @@ function CatCard({ cat, className }) {
     }
   }, [cat.breeds, favoritesState.favorites, cat.id]); // Agrega dependencias
 
-  // Alternar el estado de expandir/contraer la descripción
-  const handleToggleExpand = () => {
-    setExpanded((prev) => !prev);
-  };
+  
+  
 
   const handleFavorite = () => {
     favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
@@ -54,27 +45,12 @@ function CatCard({ cat, className }) {
   };
 
   return (
-    <div className={style.catCard}>
+    
+   <div className={style.catCard}>
       <img className={style.catImage} src={cat.url} alt="Gatito" />
       <div className={style.infoContainer}>
         {breedInfo ? (
-       <div className={`${style.breedInfo} ${expanded ? style.expanded : ''}`}>
-       <h3 className={style.title}>{breedInfo.name}</h3>
-       <p>
-         {expanded
-           ? breedInfo.description
-           : `${breedInfo.description.substring(0, 100)}...`}
-       </p>
-       {breedInfo.description.length > 100 && (
-         <button className={style.expandButton} onClick={handleToggleExpand}>
-           {textButton}
-         </button>
-       )}
-     </div>
-     
-          <div
-            className={`${style.breedInfo} ${expanded ? style.expanded : ""}`}
-          >
+          <div className={`${style.breedInfo} ${expanded ? style.expanded : ""}`}>
             <h3>{breedInfo.name}</h3>
             <p>
             {limitText(breedInfo.description, 100)}
@@ -92,15 +68,24 @@ function CatCard({ cat, className }) {
         )}
       </div>
       <div className={style.controllerFavouriteButton}>
-      {showButton && (
-        <button className={style.favouriteButton} onClick={handleFavorite}>{addFavorites}</button>
-      )}
+        {showButton && (
+          <button className={style.favouriteButton} onClick={handleFavorite}>
+            {langEng ? "Add to favorites" : "Añadir a favoritos"}
+          </button>
+        )}
       </div>
-      {showMessage && <p><strong>{addedFavorites}</strong></p>}
+      {showMessage && (
+        <p className={style.texts}>
+          <strong>
+            {langEng ? "Added to favorites" : "Añadido a favoritos"}
+          </strong>
+        </p>
+      )}
       <div className={style.adopt}>
         <Button to="adopt-form" />
       </div>
     </div>
+   
   );
 }
 
