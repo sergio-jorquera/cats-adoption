@@ -37,6 +37,7 @@ El proyecto está organizado de la siguiente manera:
 │   │── /routes          # 🚏 Configuración de rutas
 │   │── /services        # 🔧 Servicios para API y utilidades
 │   │── /tests           # 🧪 Pruebas automatizadas
+|   │── /translates      # 🌐 Traducciones   
 │   ├── App.css          # 🎨 Estilos globales
 │   ├── App.jsx          # 🏗️ Componente principal de la aplicación
 │   ├── index.css        # 🎨 Estilos generales
