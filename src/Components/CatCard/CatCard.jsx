@@ -6,6 +6,7 @@ import { ADD_FAVORITE } from "../../reducers/favoritesReducer";
 import { LanguageContext } from "../../context/LanguageContext";
 
 function CatCard({ cat }) {
+  // Estado para la información de la raza del gato
   const [breedInfo, setBreedInfo] = useState(null);
   const [expanded] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -21,26 +22,32 @@ function CatCard({ cat }) {
         }
   
   useEffect(() => {
+    // Verifica si el gato tiene información de raza
     if (cat.breeds && cat.breeds.length > 0) {
       setBreedInfo(cat.breeds[0]);
     } else {
       setBreedInfo(null);
     }
-    // Verifica si la card ya está en favoritos
+    // Verifica si la card ya está en favoritos y oculta el botón si es así
     if (favoritesState.favorites.some((fav) => fav.id === cat.id)) {
-      setShowButton(false); // Oculta el botón si ya está en favoritos
+      setShowButton(false);
     }
-  }, [cat.breeds, favoritesState.favorites, cat.id]); // Agrega dependencias
+  }, [cat.breeds, favoritesState.favorites, cat.id]);
 
   
   
 
+  // Función para añadir la card a favoritos
   const handleFavorite = () => {
+    // Dispara la acción para añadir a favoritos
     favoritesDispatch({ type: ADD_FAVORITE, payload: cat });
-    setShowButton(false); // Oculta el botón inmediatamente
-    setShowMessage(true); // Muestra el mensaje
+    // Oculta el botón inmediatamente
+    setShowButton(false);
+    // Muestra el mensaje "Añadido a Favoritos"
+    setShowMessage(true);
+    // Oculta el mensaje después de 3 segundos
     setTimeout(() => {
-      setShowMessage(false); // Oculta el mensaje después de 3 segundos
+      setShowMessage(false);
     }, 3000);
   };
 
