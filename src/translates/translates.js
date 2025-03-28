@@ -123,6 +123,7 @@ export function translateCatCard(eng) {
         advertMessge: "Añadido a favoritos",
       };
 }
+
 export function translateCatList(eng) {
   return eng
     ? {
@@ -132,6 +133,7 @@ export function translateCatList(eng) {
         title: "Lista de Gatitos",
       };
 }
+
 export function translateFooter(eng) {
   return eng
     ? {
@@ -166,12 +168,12 @@ export function translateHeader(eng) {
       };
 }
 
-export function translateTheme(eng, theme){
-  return eng ? 
-   theme === "light"
-    ? "Dark theme"
-    : "Light theme"
-  : theme === "light"
-  ? "Tema oscuro"
-  : "Tema claro"
+export function translateTheme(eng, theme) {
+  return eng
+    ? theme === "light"
+      ? "Dark theme"
+      : "Light theme"
+    : theme === "light"
+    ? "Tema oscuro"
+    : "Tema claro";
 }
