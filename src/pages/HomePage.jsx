@@ -3,14 +3,17 @@ import { LanguageContext } from './../context/LanguageContext';  // Asegúrate d
 import CatSlider from '../Components/CatSlider/CatSlider';
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
-import styles from "./styles/HomePage.module.css"
+import styles from "./styles/HomePage.module.css";
+import { translateHomePage } from '../../translates';
 
 
 function HomePage() {
   const { langEng } = useContext(LanguageContext); // Accede al contexto de idioma
 
+  const text = translateHomePage(langEng);
+
     useEffect(() => {
-      document.title = langEng ? "Home" : "Inicio" ;
+      document.title = text.documentTitle ;
     }, [langEng])
   
   // Definir los textos según el idioma
@@ -23,8 +26,8 @@ function HomePage() {
     <div className={styles.containerPage}>
       <Header />
       <div className={styles.divText}>
-      <h1 className={styles.title}>{pageTitle}</h1> {/* El título cambia según el idioma */}
-      <p className={styles.description}>{description}</p> {/* La descripción también cambia */}
+      <h1 className={styles.title}>{text.pagetitle}</h1> {/* El título cambia según el idioma */}
+      <p className={styles.description}>{text.description}</p> {/* La descripción también cambia */}
       </div>
       <div className={styles.containerSlider}>
         <CatSlider />

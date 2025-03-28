@@ -4,23 +4,13 @@ import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 import { LanguageContext } from "../context/LanguageContext.jsx";
 import styles from './styles/AdoptPage.module.css';
+import { translateAdoptPage } from "../translates/translates.js";
 import "./../App.css";
 
-function langSelection(langEng) {
-  return langEng
-    ? {
-        title: "Website currently under construction:",
-        documentTitle: "In construction",
-      }
-    : {
-        title: "Página web actualmente en construcción",
-        documentTitle: "En construccíon",
-      };
-};
 
 export default function AdoptPage() {
   const { langEng } = useContext(LanguageContext);
-  const text = langSelection(langEng);
+  const text = translateAdoptPage(langEng);
 
   useEffect(() => {
     document.title = text.documentTitle;

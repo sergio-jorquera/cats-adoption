@@ -3,9 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import CatService from '../../services/catService.js';
 import CatCard from '../CatCard/CatCard.jsx';
+import { translateCatList } from '../../../translates.js';
 
 function CatList() {
   const [cats, setCats] = useState([]);
+  const { langEng } = useContext(LanguageContext);
+
+  const text = translateCatList(langEng)
 
   useEffect(() => {
     async function fetchCats() {
@@ -17,7 +21,7 @@ function CatList() {
 
   return (
     <div>
-      <h1>Lista de Gatitos</h1>
+      <h1>{text.title}</h1>
       {cats.map((cat) => (
         <CatCard key={cat.id} cat={cat} />
       ))}

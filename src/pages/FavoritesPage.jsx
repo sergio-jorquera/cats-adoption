@@ -7,30 +7,13 @@ import { LanguageContext } from "../context/LanguageContext.jsx";
 import Header from "./../Components/Header/Header.jsx";
 import Footer from "./../Components/Footer/Footer.jsx";
 import style from "./styles/FavoritesPage.module.css";
-
-function langSelection(langEng) {
-  return langEng
-    ? {
-        title: "Favorites",
-        message: "You don't have favorites",
-        buttonText: "delete",
-      }
-    : {
-        title: "Favoritos",
-        message: "No tienes favoritos",
-        buttonText: "Eliminar",
-      };
-}
+import { translateFavoritesPage } from "../translates/translates.js";
 
 function FavoritesPage() {
-
   const { langEng } = useContext(LanguageContext);
-  
-
-
   const { favoritesState, favoritesDispatch } = useContext(FavoritesContext);
-  
-  const text = langSelection(langEng);
+
+  const text = translateFavoritesPage(langEng);
 
   useEffect(() => {
     document.title = text.title;
