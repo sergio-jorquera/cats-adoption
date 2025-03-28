@@ -123,31 +123,55 @@ export function translateCatCard(eng) {
         advertMessge: "Añadido a favoritos",
       };
 }
-export function translateCatList(eng){
-    return eng ? {
-        title: "Kitten list"
-    } : {
-        title: "Lista de Gatitos"
-    };
+export function translateCatList(eng) {
+  return eng
+    ? {
+        title: "Kitten list",
+      }
+    : {
+        title: "Lista de Gatitos",
+      };
 }
 export function translateFooter(eng) {
-    return eng ? {
+  return eng
+    ? {
         firstText: "Project carried out by:",
-        secondText: "Sergio Jorquera, Saturnino Méndez y Rubén Ortega. All rights reserved."
-    } : {
+        secondText:
+          "Sergio Jorquera, Saturnino Méndez y Rubén Ortega. All rights reserved.",
+      }
+    : {
         firstText: "Proyecto realizado por:",
-        secondText: "Sergio Jorquera, Saturnino Méndez y Rubén Ortega. Todos los derechos reservados."
-    }
+        secondText:
+          "Sergio Jorquera, Saturnino Méndez y Rubén Ortega. Todos los derechos reservados.",
+      };
 }
 
 export function translateHeader(eng) {
-    return eng ? {
+  return eng
+    ? {
+        name: "Happy Kittens",
         element1: "Home",
         element2: "Adopt a kitten",
-        element3: "Favorites"
-    } : {
+        element3: "Favorites",
+        lang: "Español",
+        textAlt: "Adopt a kitten logo",
+      }
+    : {
+        name: "Gatitos Felices",
         element1: "Inicio",
         element2: "Adopta un gatito",
-        element3: "Favoritos"
-    }
+        element3: "Favoritos",
+        lang: "English",
+        textAlt: "Adopta un gatito logo",
+      };
+}
+
+export function translateTheme(eng, theme){
+  return eng ? 
+   theme === "light"
+    ? "Dark theme"
+    : "Light theme"
+  : theme === "light"
+  ? "Tema oscuro"
+  : "Tema claro"
 }

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import CatService from '../../services/catService.js';
 import CatCard from '../CatCard/CatCard.jsx';
-import { translateCatList } from '../../../translates.js';
+import { translateCatList } from '../../translates/translates.js';
 
 function CatList() {
   const [cats, setCats] = useState([]);

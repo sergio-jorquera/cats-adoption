@@ -4,7 +4,7 @@ import CatSlider from '../Components/CatSlider/CatSlider';
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import styles from "./styles/HomePage.module.css";
-import { translateHomePage } from '../../translates';
+import { translateHomePage } from '../translates/translates';
 
 
 function HomePage() {
