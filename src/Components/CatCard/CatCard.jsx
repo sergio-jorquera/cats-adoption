@@ -58,7 +58,7 @@ function CatCard({ cat }) {
       <div className={style.infoContainer}>
         {breedInfo ? (
           <div className={`${style.breedInfo} ${expanded ? style.expanded : ""}`}>
-            <h3>{breedInfo.name}</h3>
+            <h3 className={style.titleCats}>{breedInfo.name}</h3>
             <p>
             {limitText(breedInfo.description, 100)}
             </p>

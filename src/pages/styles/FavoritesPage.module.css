@@ -1,21 +1,27 @@
 .body {
   display: grid;
-  height: 85.5vh;
+  height: 79vh;
+  margin-bottom: 6.5vh;
+ 
 }
 
 .cardContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
+  align-items: center;
   padding: 10px;
   border-radius: 8px;
   margin-top: 1vh;
   gap: 1.5vw;
+  
 }
 
 .buttonContainer {
   margin-top: 3vh; /* Separa el botón de la tarjeta */
 }
 .textH1 {
-  margin-top: 5vh;
+  margin-top: 2vh;
   height: 1vh;
+  margin-bottom: 3vh;
 }

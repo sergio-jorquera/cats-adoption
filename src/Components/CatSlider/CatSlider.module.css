@@ -51,11 +51,11 @@
 }
 
 #prevButton {
-  left: 6vw;
+  left: 2vw;
 }
 
 #nextButton {
-  right:  6vw;
+  right:  2vw;
 }
 @media (min-width: 301px) and (max-width: 501px) {
   .arrow {
