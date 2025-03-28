@@ -96,7 +96,6 @@
     max-height: 100vh;
     width: 80vw; /* Aumenté el ancho para que ocupe más espacio en la pantalla */
     margin: 0 auto; /* Centrar el formulario */
-   
   }
 
   .mainLeft,
@@ -104,14 +103,10 @@
     width: 90vw; /* Ajusté el ancho para que se vea mejor en dispositivos pequeños */
     height: auto;
     font-size: 1vh;
-
   }
-  
-
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 811px) {
   .mainAdopt {
     display: grid;
     grid-template-columns: 1fr;
@@ -119,17 +114,47 @@
     overflow-y: auto;
     max-height: 100vh;
   }
-  
+
   .mainLeft,
   .mainRight {
     width: 100%;
     height: auto;
   }
-  .mainContentLeft{
+  .mainContentLeft {
     margin-top: 2vh;
   }
   .mainContentRight {
     padding-top: 0;
     font-size: 3vh;
+  }
+  .formdiv input, .formdiv textarea {
+    width: 80%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 500px) {
+  .mainAdopt {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    overflow-y: auto;
+    max-height: 100vh;
+    width: 99vw; 
+    margin: 0 auto; 
+  }
+  .mainLeft
+  .mainRight {
+    width: 80vw; 
+    height: auto;
+    font-size: 1vh;
+    padding: 0;
+  }
+  .mainContentRight{
+    width: 80vw;
+  }
+  .formdiv input, .formdiv textarea {
+    width: 80%;
+    box-sizing: border-box;
   }
 }
