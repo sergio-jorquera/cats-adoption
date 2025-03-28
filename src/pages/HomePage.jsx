@@ -23,8 +23,8 @@ function HomePage() {
     <div className={styles.containerPage}>
       <Header />
       <div className={styles.divText}>
-      <h1 className={styles.title}>{pageTitle}</h1> {/* El título cambia según el idioma */}
-      <p className={styles.description}>{description}</p> {/* La descripción también cambia */}
+      <h1 className={styles.title}>{pageTitle}</h1> 
+      <p className={styles.description}>{description}</p> 
       </div>
       <div className={styles.containerSlider}>
         <CatSlider />

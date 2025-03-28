@@ -13,7 +13,7 @@ export const ThemeProvider = ({children}) => {
     };
   
     useEffect(() => {
-      document.body.className = theme; // Establece la clase en el body
+      document.body.className = theme; 
     }, [theme]);
    
     return (

@@ -14,18 +14,18 @@ export default function Slider() {
   const [itemsPerSlide, setItemsPerSlide] = useState(5);
  
 
-  // Obtener los gatos solo UNA VEZ
+  
   useEffect(() => {
     const fetchCats = async () => {
       const data = await CatService.getCats();
       setCats(data);
-      setTranslatedCats(data); // Inicialmente sin traducir
+      setTranslatedCats(data); 
     };
 
     fetchCats();
-  }, []); // Se ejecuta SOLO al montar el componente
+  }, []); 
 
-  // Traducir SOLO las cards en pantalla cuando cambia el idioma
+  
   useEffect(() => {
     if (!langEng) {
       setTranslatedCats(cats);
@@ -76,14 +76,14 @@ export default function Slider() {
       } 
     };
 
-    updateItemsPerSlide(); // Llamamos a la función inmediatamente para ajustar los items
-    window.addEventListener("resize", updateItemsPerSlide); // Escuchar los cambios de tamaño
+    updateItemsPerSlide(); 
+    window.addEventListener("resize", updateItemsPerSlide); 
 
-    // Limpiar el event listener cuando el componente se desmonte
+    
     return () => {
       window.removeEventListener("resize", updateItemsPerSlide);
     };
-  }, []); // Se ejecuta solo una vez al inicio
+  }, []); 
 
   
 
