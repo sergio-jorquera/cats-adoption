@@ -1,3 +1,9 @@
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
+
+
 .catCard {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -75,3 +81,51 @@
   .favouriteButton:active {
     transform: translateY(2px);
   }
+
+  @media (max-width: 500px) {
+    .sliderContent {
+      justify-content: center;
+    }
+  
+    .catCard {
+ 
+      width: 70vw;
+ 
+ 
+    }
+    .catImage{
+      width: 60vw;
+    }
+    .favouriteButton {
+      width: 45vw;
+    }
+    .buttonAP {
+      width: 45vw;
+    }
+  }
+  @media (min-width: 501px) and (max-width: 768px) {
+    .catImage{
+      width: 33vw;
+    }
+    .favouriteButton {
+      width: 20vw;
+    }
+    .buttonAP {
+      width: 20vw;
+    }
+
+  }
+  @media (min-width: 769px) and (max-width: 1440px) {
+    .catImage{
+      width: 18vw;
+    }
+    .favouriteButton {
+      width: 10vw;
+    }
+    .buttonAP {
+      width: 10vw;
+    }
+
+  }
+
+  

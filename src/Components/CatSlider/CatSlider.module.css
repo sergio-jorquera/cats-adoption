@@ -79,22 +79,29 @@
     
   .arrow {
     position: absolute;
-     width: 10vw;
+     width: 7vw;
   }
   .sliderContainer {
     position: relative;
   }
   #prevButton {
-    left: 1.5vw;
+    left: 1vw;
   }
   
   #nextButton {
-    right:  1.5vw;
+    right:  1vw;
   }
 }
-  @media (min-width: 1024px) and (max-width: 1500px) {
+  @media (min-width: 801px) and (max-width: 1500px) {
   .arrow{
       font-size: 1.8vh;
-      width: 5vw;
+      width: 4vw;
+    }
+    #prevButton {
+      left: 0.5vw;
+    }
+    
+    #nextButton {
+      right:  0.5vw;
     }
   }

@@ -69,8 +69,10 @@ export default function Slider() {
       const width = window.innerWidth; 
       if (width < 500) {
         setItemsPerSlide(1); 
-      } else if (width >= 500 && width < 800) {
+      }else if (width >= 500 && width < 800) {
         setItemsPerSlide(2); 
+      }  else if (width >= 801 && width < 1441) {
+        setItemsPerSlide(4); 
       } 
     };
 

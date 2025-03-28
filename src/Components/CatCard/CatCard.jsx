@@ -89,7 +89,7 @@ function CatCard({ cat }) {
         </p>
       )}
       <div className={style.adopt}>
-        <Button to="adopt-form" />
+        <Button className={style.buttonAP} to="adopt-form" />
       </div>
     </div>
    
