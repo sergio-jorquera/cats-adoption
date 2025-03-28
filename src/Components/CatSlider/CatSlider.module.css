@@ -57,30 +57,44 @@
 #nextButton {
   right:  6vw;
 }
-
-
-
-@media (max-width: 500px) {
-  .sliderContent {
-    justify-content: center;
+@media (min-width: 301px) and (max-width: 501px) {
+  .arrow {
+    position: absolute;
+     width: 10vw;
   }
-
- .cardWidth {
-    width: 80vw;
-
- }
-}
-
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .sliderContent > * {
-    width: 30%; /* En tablet, las tarjetas ocupan el 30% del ancho (aproximadamente 3 columnas) */
+  .sliderContainer {
+    position: relative;
+  }
+  #prevButton {
+    left: 2.5vw;
+  }
+  
+  #nextButton {
+    right:  2.5vw;
   }
 }
 
-/* Escritorio */
-@media (min-width: 1024px) {
-  .sliderContent > * {
-    width: 22%; /* En escritorios, las tarjetas ocupan el 22% del ancho (aproximadamente 4-5 columnas) */
+
+@media (min-width: 501px) and (max-width: 768px) {
+    
+  .arrow {
+    position: absolute;
+     width: 10vw;
+  }
+  .sliderContainer {
+    position: relative;
+  }
+  #prevButton {
+    left: 1.5vw;
+  }
+  
+  #nextButton {
+    right:  1.5vw;
   }
 }
+  @media (min-width: 1024px) and (max-width: 1500px) {
+  .arrow{
+      font-size: 1.8vh;
+      width: 5vw;
+    }
+  }

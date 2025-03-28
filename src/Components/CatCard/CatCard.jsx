@@ -16,11 +16,14 @@ function CatCard({ cat, className }) {
   const textButton =langEng 
   ? (expanded ? 'See less' : 'See more') 
   : (expanded ? 'Ver menos' : 'Ver más');
+  const addFavorites= langEng ? 'Add to favorites' : 'Añadir a favoritos';
+  const addedFavorites= langEng ? 'Added to favorites' : 'Añadido a favoritos';
     // Función para acortar el texto
-    function textShorter(text) {
-      let finalText = text.split('.');
-      return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
-    }
+    
+    // function textShorter(text) {
+    //   let finalText = text.split('.');
+    //   return finalText.length >= 2 ? finalText.slice(0, 2).join('.') + '.' : text;
+    // }
   
   
   
@@ -56,21 +59,20 @@ function CatCard({ cat, className }) {
       <img className={style.catImage} src={cat.url} alt="Gatito" />
       <div className={style.infoContainer}>
         {breedInfo ? (
-          <div className={`${style.breedInfo} ${expanded ? style.expanded : ''}`}>
-            <h3>{breedInfo.name}</h3>
-            <p>
-              {expanded
-                ? breedInfo.description
-                : `${breedInfo.description.substring(0, 100)}...`}
-             
-            {textShorter((cat.description || cat.breeds[0].description))}  
-            </p>
-            {!expanded && breedInfo.description.length > 100 && (
-              <button className={style.expandButton} onClick={handleToggleExpand}>
-              {textButton}
-            </button>
-            )}
-          </div>
+       <div className={`${style.breedInfo} ${expanded ? style.expanded : ''}`}>
+       <h3 className={style.title}>{breedInfo.name}</h3>
+       <p>
+         {expanded
+           ? breedInfo.description
+           : `${breedInfo.description.substring(0, 100)}...`}
+       </p>
+       {breedInfo.description.length > 100 && (
+         <button className={style.expandButton} onClick={handleToggleExpand}>
+           {textButton}
+         </button>
+       )}
+     </div>
+     
         ) : (
           <div className={style.breedInfo}>
             <h3>Raza desconocida</h3>
@@ -80,10 +82,10 @@ function CatCard({ cat, className }) {
       </div>
       <div className={style.controllerFavouriteButton}>
       {showButton && (
-        <button className={style.favouriteButton} onClick={handleFavorite}>Añadir a Favoritos</button>
+        <button className={style.favouriteButton} onClick={handleFavorite}>{addFavorites}</button>
       )}
       </div>
-      {showMessage && <p><strong>Añadido a Favoritos</strong></p>}
+      {showMessage && <p><strong>{addedFavorites}</strong></p>}
       <div className={style.adopt}>
       <Button to="adopt-form" />
       </div>

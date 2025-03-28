@@ -74,7 +74,7 @@ export default function Slider() {
       if (width < 500) {
         setItemsPerSlide(1); 
       } else if (width >= 500 && width < 800) {
-        setItemsPerSlide(3); 
+        setItemsPerSlide(2); 
       } 
     };
 
