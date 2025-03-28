@@ -20,6 +20,7 @@
   margin: 10px;
   width: 300px; /* Ajusta el ancho según tus necesidades */
   box-sizing: border-box;
+  background-color: white;
 }
 
 .catImage {

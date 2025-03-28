@@ -58,7 +58,7 @@ function FavoritesPage() {
 
                 {/* Botón de eliminar */}
                 <div className={style.buttonContainer}>
-                  <button onClick={() => handleRemove(cat)}>
+                  <button className={style.buttonDelete} onClick={() => handleRemove(cat)}>
                     {text.buttonText}
                   </button>
                 </div>

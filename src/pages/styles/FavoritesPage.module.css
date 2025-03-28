@@ -1,3 +1,10 @@
+
+:root {
+  --titles-font: "Neulis Neue";
+  --primary-font: "Neulis Sans";
+}
+
+
 .body {
   display: grid;
   height: 79vh;
@@ -18,10 +25,76 @@
 }
 
 .buttonContainer {
-  margin-top: 3vh; /* Separa el botón de la tarjeta */
+  display: flex;
+  justify-content: center;
+  margin-right: 1.6vw;
+  margin-top: 1.5vh; 
 }
 .textH1 {
   margin-top: 2vh;
   height: 1vh;
   margin-bottom: 3vh;
 }
+.buttonDelete{
+  font-family: var(--primary-font);
+  background-color: rgb(0, 81, 255);;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 6vw;
+  padding: 0.5vh;
+  cursor: pointer;
+}
+
+.buttonDelete:hover {
+  background-color: rgb(245, 245, 154);
+  color: black;
+}
+.buttonDelete:active {
+  transform: translateY(2px);
+}
+
+@media (max-width: 500px) {
+  
+  .cardContainer{
+    
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 10vw;
+  
+}
+.buttonDelete{
+  width: 45vw;
+  margin-right: 7vw;
+ 
+}
+}
+@media (min-width: 501px) and (max-width: 768px) {
+  .cardContainer{
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 5vw;
+  }
+  .buttonDelete{
+    width: 21vw;
+    margin-right: 2.5vw;
+  }
+}
+@media (min-width: 769px) and (max-width: 1440px) {
+  .cardContainer{
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 1.5vw;
+  }
+  .buttonDelete{
+    
+    width: 10vw;
+    margin-left: 0.8vw;
+   
+  }
+
+
+}
+
